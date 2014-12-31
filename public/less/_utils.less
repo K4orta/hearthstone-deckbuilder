@@ -1,0 +1,52 @@
+@supportsMediaQueries: true;
+
+/*
+ * Mixin for min-width media queries.
+ * Returns the properties unwrapped for browsers that do not  
+ * support media queries.
+ *
+ * NOTE: The ordering of this mixin matters for when @supportsMediaQueries is false.
+ *		 .min-mq(@sm ,{...}); should be placed before .min-mq(@lg ,{...}); so that
+ *		 the styles in the larger media query take presidence.
+ *
+ */
+.min-mq(@size; @properties) {
+	& when (@supportsMediaQueries = true) {
+		@media only screen and (min-width: @size) {
+			@properties();
+		}
+	}
+
+	& when (@supportsMediaQueries = false) {
+		@properties();
+	}
+}
+
+/*
+ * Mixin for max-width media queries.
+ * Ignore on browsers that do not support media queries as 
+ * these browsers will get served the large screen styles.
+ */
+.max-mq(@size; @properties) {
+	& when (@supportsMediaQueries = true) {
+		@media only screen and (max-width: @size) {
+			@properties();
+		}
+	}
+}
+
+/*
+ * A new micro clearfix hack
+ * @see http://h5bp.com/q
+ */
+.clearfix {
+	*zoom: 1;
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+	  clear: both;
+	}
+}

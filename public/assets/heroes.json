@@ -1,0 +1,164 @@
+[
+	{
+        "id": 7,
+        "name": "Garrosh Hellscream",
+        "description": "",
+        "image_url": "HERO_01.png",
+        "hero": "warrior",
+        "category": "hero",
+        "quality": "free",
+        "race": "none",
+        "set": "basic",
+        "mana": 0,
+        "attack": null,
+        "health": 30,
+        "collectible": true,
+        "effect_list": [
+
+        ]
+      },
+      {
+        "id": 31,
+        "name": "Rexxar",
+        "description": "",
+        "image_url": "HERO_05.png",
+        "hero": "hunter",
+        "category": "hero",
+        "quality": "free",
+        "race": "none",
+        "set": "basic",
+        "mana": 0,
+        "attack": null,
+        "health": 30,
+        "collectible": true,
+        "effect_list": [
+
+        ]
+      },
+      {
+        "id": 274,
+        "name": "Malfurion Stormrage",
+        "description": "",
+        "image_url": "HERO_06.png",
+        "hero": "druid",
+        "category": "hero",
+        "quality": "free",
+        "race": "none",
+        "set": "basic",
+        "mana": 0,
+        "attack": null,
+        "health": 30,
+        "collectible": true,
+        "effect_list": [
+
+        ]
+      },
+      {
+        "id": 637,
+        "name": "Jaina Proudmoore",
+        "description": "",
+        "image_url": "HERO_08.png",
+        "hero": "mage",
+        "category": "hero",
+        "quality": "free",
+        "race": "none",
+        "set": "basic",
+        "mana": 0,
+        "attack": null,
+        "health": 30,
+        "collectible": true,
+        "effect_list": [
+
+        ]
+      },
+      {
+        "id": 671,
+        "name": "Uther Lightbringer",
+        "description": "",
+        "image_url": "HERO_04.png",
+        "hero": "paladin",
+        "category": "hero",
+        "quality": "free",
+        "race": "none",
+        "set": "basic",
+        "mana": 0,
+        "attack": null,
+        "health": 30,
+        "collectible": true,
+        "effect_list": [
+
+        ]
+      },
+      {
+        "id": 813,
+        "name": "Anduin Wrynn",
+        "description": "",
+        "image_url": "HERO_09.png",
+        "hero": "priest",
+        "category": "hero",
+        "quality": "free",
+        "race": "none",
+        "set": "basic",
+        "mana": 0,
+        "attack": null,
+        "health": 30,
+        "collectible": true,
+        "effect_list": [
+
+        ]
+      },
+      {
+        "id": 893,
+        "name": "Gul'dan",
+        "description": "",
+        "image_url": "HERO_07.png",
+        "hero": "warlock",
+        "category": "hero",
+        "quality": "free",
+        "race": "none",
+        "set": "basic",
+        "mana": 0,
+        "attack": null,
+        "health": 30,
+        "collectible": true,
+        "effect_list": [
+
+        ]
+      },
+      {
+        "id": 930,
+        "name": "Valeera Sanguinar",
+        "description": "",
+        "image_url": "HERO_03.png",
+        "hero": "rogue",
+        "category": "hero",
+        "quality": "free",
+        "race": "none",
+        "set": "basic",
+        "mana": 0,
+        "attack": null,
+        "health": 30,
+        "collectible": true,
+        "effect_list": [
+
+        ]
+      },
+      {
+        "id": 1066,
+        "name": "Thrall",
+        "description": "",
+        "image_url": "HERO_02.png",
+        "hero": "shaman",
+        "category": "hero",
+        "quality": "free",
+        "race": "none",
+        "set": "basic",
+        "mana": 0,
+        "attack": null,
+        "health": 30,
+        "collectible": true,
+        "effect_list": [
+
+        ]
+      }
+]

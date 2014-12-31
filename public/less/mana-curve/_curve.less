@@ -1,0 +1,48 @@
+.mana-curve {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: @mana-curve-height;
+	padding: 1rem;
+	z-index: 3;
+	background-color: #333;
+	color: white;
+	text-align: center;
+	width: 100%;
+	.min-mq(@sm, {
+		width: @sidebar-width;	
+	});
+}
+
+.mana-curve__item {
+	width: 12.5%;
+	display: inline-block;
+}
+
+.mana-bar__bar {
+	height: 5rem;
+	border: 1px solid gray;
+	margin: 0 auto .5rem;
+	max-width: 1rem;
+	position: relative;
+	.min-mq(@md, {
+		max-width: 1.25rem;
+		border-radius: 2px;
+	});
+}
+
+.mana-bar__bar__amount {
+	background-color: @mana-color;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	transition: height .25s ease-out;
+}
+
+.mana-bar__label {
+	background-color: @mana-color;
+	display: inline-block;
+	padding: .21rem .57rem;
+	border-radius: 5rem;
+}

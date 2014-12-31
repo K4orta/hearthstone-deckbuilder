@@ -1,0 +1,33 @@
+.deck-panel {
+	width: 100%;
+	position: fixed;
+	background-color: brown;
+	bottom: @mana-curve-height;
+	height: 3rem;
+	padding: 0 1rem;
+	z-index: 2;
+	overflow: hidden;
+	.min-mq(@sm, {
+		padding: .5rem 1rem;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: @sidebar-width;
+		padding-bottom: @mana-curve-height;
+	});
+}
+
+.deck-list {
+	color: white;
+	list-style: none;
+	padding: 0;	
+}
+
+.deck__title {
+	font-size: 1.25rem;
+	line-height: 3rem;
+}
+
+.deck-index__controls {
+	display: none;
+}
