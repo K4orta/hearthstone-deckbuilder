@@ -51,17 +51,17 @@ var Collection = React.createClass({
 			]
 		});
 
-		var paginatedCards = this._paginateCards({
-			cards: filteredCards,
-			perPage: perPage,
-			page: page - 1 
-		});
+		// var paginatedCards = this._paginateCards({
+		// 	cards: filteredCards,
+		// 	perPage: perPage,
+		// 	page: page - 1 
+		// });
+		//<Pagination data={_.range(parseInt(filteredCards.length / perPage) + 1)} currentPage={page} />
 
 		return (
 			<section className='collection-view'>
 				<Search/>
-				<Pagination data={_.range(parseInt(filteredCards.length / perPage) + 1)} currentPage={page} />
-				<CardList data={paginatedCards} />
+				<CardList data={filteredCards} />
 			</section>
 		);
 	}
