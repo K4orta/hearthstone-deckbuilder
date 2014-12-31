@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
     "express": "^4.10.6",
+    "fastclick": "^1.0.3",
     "flux": "^2.0.1",
     "jade": "^1.8.1",
     "jquery": "^2.1.1",

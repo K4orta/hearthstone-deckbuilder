@@ -9,9 +9,11 @@
 	color: white;
 	text-align: center;
 	width: 100%;
+
 	.min-mq(@sm, {
 		width: @sidebar-width;	
 	});
+
 }
 
 .mana-curve__item {
@@ -41,8 +43,20 @@
 }
 
 .mana-bar__label {
-	background-color: @mana-color;
+	
 	display: inline-block;
 	padding: .21rem .57rem;
-	border-radius: 5rem;
+	
+	position: relative;
+	&:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 1.6rem;
+		height: 1.6rem;
+		display: block;
+		border: 1px solid @mana-color;
+		border-radius: 5rem;
+	}
 }

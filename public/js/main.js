@@ -1,3 +1,5 @@
-var App = require('./components/app.react');
+var FastClick = require('fastclick'),
+	App = require('./components/app.react');
 
+FastClick(document.body);
 App();

@@ -52,6 +52,11 @@ var Store = assign({}, EventEmitter.prototype, {
 	getDeck: function(id) {
 		return _collection[id];
 	},
+	getUsedCards: function(deck) {
+		return _.countBy(deck.cards, function(card) {
+			return card.id;
+		});
+	},
 	emitChange: function() {
 		this.emit(CHANGE_EVENT);
 	},

@@ -1,5 +1,6 @@
 @import '_reset';
 @import '_vars';
+@import '_fonts';
 @import '_utils';
 @import '_ui';
 
@@ -25,11 +26,21 @@ body {
 	line-height: 1.35rem;
 	padding: 0;
 	margin: 0;
-	min-height: 100%
+	min-height: 100%;
+	font-family: @body-stack;
+	background-color: @collection-background;
+}
+
+h1,h2,h3,h4,h5 {
+	font-family: @body-stack;
 }
 
 img {
 	max-width: 100%;
+}
+
+p {
+	font-family: @heading-stack;
 }
 
 b {
