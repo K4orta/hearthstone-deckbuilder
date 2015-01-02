@@ -14,9 +14,9 @@ var Index = React.createClass({
 		};
 	},
 	render: function() {
+				// <Heroes data={HeroStore.getAll()} onChange={this.switchHero}/>
 		return (
 			<div> 
-				<Heroes data={HeroStore.getAll()} onChange={this.switchHero}/>
 				<Collection hero={this.state.currentHero} />
 				<ManaCurve />
 				<Decks />

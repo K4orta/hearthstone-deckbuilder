@@ -1,9 +1,23 @@
-var React = require('react');
+var React = require('react'),
+	Router = require('react-router');
 
 module.exports = React.createClass({
+	mixins: [
+		Router.Navigation,
+		Router.State
+	],
+	_onInput: function(e) {
+		var searchQuery = this.refs.searchField.getDOMNode().value,
+			queryParam;
+		if (searchQuery) {
+			queryParam = {search: searchQuery};
+		}
+		this.replaceWith('/', {}, queryParam);
+	},
 	render: function() {
+		var query = this.getQuery();
 		return (
-			<input type='text'></input>
+			<input className='search__input' ref='searchField' type='text' value={query.search} onChange={this._onInput}></input>
 		);
 	}
 });

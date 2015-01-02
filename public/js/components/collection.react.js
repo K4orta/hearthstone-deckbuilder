@@ -30,8 +30,11 @@ var Collection = React.createClass({
 		};
 	},
 	_filterBySearch: function(input) {
+		var lowerInput = input.toLowerCase()
 		return function(cards) {
-			return cards;
+			return _.filter(cards, function(card) {
+				return _.contains(card.name.toLowerCase(), lowerInput) || _.contains(card.race.toLowerCase(), lowerInput);
+			});
 		};
 	},
 	_paginateCards: function(options) {
@@ -39,16 +42,23 @@ var Collection = React.createClass({
 		return options.cards.slice(options.page * options.perPage, limit);
 	},
 	render: function() {
-		var page = this.getQuery().page || 1,
+		var query = this.getQuery();
+		var page = query.page || 1,
 			hero = this.props.hero,
 			perPage = 25;
 
+		var filters = [
+			this._filterByHero(hero),
+			this._removeUncommon(),
+			this._sortBy('mana')
+		];
+
+		if (query.search) {
+			filters.push(this._filterBySearch(query.search));
+		}
+
 		var filteredCards = Cards.get({
-			filters: [
-				this._filterByHero(hero),
-				this._removeUncommon(),
-				this._sortBy('mana')
-			]
+			filters: filters
 		});
 
 		// var paginatedCards = this._paginateCards({
@@ -60,7 +70,9 @@ var Collection = React.createClass({
 
 		return (
 			<section className='collection-view'>
-				<Search/>
+				<div className='collection-tools'>
+					<Search/>
+				</div>
 				<CardList data={filteredCards} />
 			</section>
 		);

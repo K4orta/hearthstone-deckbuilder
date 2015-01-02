@@ -1,5 +1,11 @@
 var FastClick = require('fastclick'),
-	App = require('./components/app.react');
+	AppRouter = require('./components/router.react'),
+	React = require('react');
 
 FastClick(document.body);
-App();
+
+React.initializeTouchEvents(true);
+// console.log(AppRouter);
+AppRouter.run(function(Handler) {
+	React.render(<Handler />, document.querySelector('.content'));
+});
