@@ -12,6 +12,9 @@ var Collection = React.createClass({
 	_deleteDeck: function(e) {
 		DeckActions.destroyDeck(parseInt(e.target.dataset.id));
 	},
+	_removeCard: function(e) {
+		DeckActions.removeCard(parseInt(e.target.dataset.deck), parseInt(e.target.dataset.id));
+	},
 	componentDidMount: function() {
 		var params = this.getParams();
 		if (params.deckId != null) {
@@ -22,7 +25,7 @@ var Collection = React.createClass({
 		var currentDeckId = DeckStore.getCurrentDeckId();
 		var decks = this.props.decks.map(function(deck, i) {
 			return (
-				<Deck key={i} data={deck} handleDeckChange={this._changeDeck} handleDeckDestroy={this._deleteDeck} isActive={deck.id === currentDeckId}/>
+				<Deck key={i} data={deck} handleDeckChange={this._changeDeck} handleDeckDestroy={this._deleteDeck} handleRemoveCard={this._removeCard} isActive={deck.id === currentDeckId}/>
 			);
 		}.bind(this));
 		return (

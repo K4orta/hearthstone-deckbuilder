@@ -26,6 +26,13 @@ var DeckActions = {
 			actionType: DeckConstants.DECK_DESTROY,
 			id: deckId
 		});
+	},
+	removeCard: function(deckId, cardId) {
+		AppDispatcher.handleViewAction({
+			actionType: DeckConstants.DECK_REMOVE_CARD,
+			deckId: deckId,
+			cardId: cardId
+		});
 	}
 };
 

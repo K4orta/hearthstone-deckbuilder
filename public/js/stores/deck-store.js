@@ -7,16 +7,17 @@
 
 var _collection = [],
 	CHANGE_EVENT = 'change',
-	idIndex = 0,
-	currentDeck = 0;
+	_idIndex = 0,
+	_currentDeck = 0;
 
 var createDeck = function(action) {
-	_collection.push({
+	_collection.unshift({
 		name: action.name,
-		id: idIndex++,
+		id: _idIndex++,
 		cards: [],
 		deckType: 'neutral'
 	});
+	_currentDeck = _collection[0].id;
 };
 
 //TODO: REMOVE THIS
@@ -35,7 +36,16 @@ var addCard = function(action) {
 };
 
 var setActiveDeck = function(action) {
-	currentDeck = action.id;
+	_currentDeck = action.id;
+};
+
+var removeCard = function(action) {
+	var deck = Store.getDeck(action.deckId);
+	var cardIndex = _.findLastIndex(deck.cards, function(card) {
+		return card.id === action.cardId;
+	});
+	
+	deck.cards.splice(cardIndex, 1);
 };
 
 var removeDeck = function(action) {
@@ -45,8 +55,8 @@ var removeDeck = function(action) {
 
 	delete _collection[deleteIndex];
 	_collection = _.compact(_collection);
-	if (currentDeck == action.id) {
-		currentDeck = _.first(_collection).id;
+	if (_currentDeck == action.id) {
+		_currentDeck = _.first(_collection).id;
 	}
 };
 
@@ -55,10 +65,10 @@ var Store = assign({}, EventEmitter.prototype, {
 		return _collection;
 	},
 	getCurrentDeckId: function() {
-		return currentDeck;
+		return _currentDeck;
 	},
 	getCurrentDeck: function() {
-		return _.findWhere(_collection, {id: currentDeck});
+		return _.findWhere(_collection, {id: _currentDeck});
 	},
 	getDeck: function(id) {
 		return _.findWhere(_collection, {id: id});
@@ -94,6 +104,9 @@ AppDispatcher.register(function(payload) {
 			break;
 		case DeckConstants.DECK_DESTROY:
 			removeDeck(action);
+			break;
+		case DeckConstants.DECK_REMOVE_CARD:
+			removeCard(action);
 			break;
 		default:
 			return true;

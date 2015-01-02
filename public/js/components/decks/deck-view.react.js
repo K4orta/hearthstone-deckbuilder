@@ -26,9 +26,12 @@ var Deck = React.createClass({
 
 		var cards = merged.map(function(card, i) {
 			return (
-				<li className='deck__card-list__item' key={i}>{card.name} x {multi[card.id]}</li>
+				<li className='deck__card-list__item' key={i}>
+					<span>{card.name} x {multi[card.id]}</span>
+					<i className='fa fa-times-circle card-list__item__remove-button' data-id={card.id} data-deck={this.props.data.id} onClick={this.props.handleRemoveCard} />
+				</li>
 			);
-		});
+		}.bind(this));
 
 		return (
 			<li className={'deck' + (this.props.isActive ? ' active' : '')}>
