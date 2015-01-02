@@ -1,5 +1,7 @@
 var React = require('react'),
-	_ = require('lodash');
+	_ = require('lodash'),
+	Router = require('react-router'),
+	Link = Router.Link;
 
 
 var Deck = React.createClass({
@@ -24,18 +26,24 @@ var Deck = React.createClass({
 
 		var cards = merged.map(function(card, i) {
 			return (
-				<li key={i}>{card.name} x {multi[card.id]}</li>
+				<li className='deck__card-list__item' key={i}>{card.name} x {multi[card.id]}</li>
 			);
 		});
 
 		return (
-			<div className={'deck' + (this.props.isActive ? ' active' : '')}>
-				<h4 className='deck__title'><a data-id={this.props.data.id} onClick={this.props.handleDeckChange}>{this.props.data.name}</a> ({this.props.data.cards.length}/30)</h4>
-				<ul>
+			<li className={'deck' + (this.props.isActive ? ' active' : '')}>
+				<h4 className='deck__title'>
+					<Link to={'/decks/' + this.props.data.id} data-id={this.props.data.id} onClick={this.props.handleDeckChange}>
+						{this.props.data.name}
+					</Link>
+					({this.props.data.cards.length}/30)
+				</h4>
+				<i className='fa fa-trash-o deck__destroy-icon' onClick={this.props.handleDeckRemove} />
+				<ul className='deck__card-list'>
 					{cards}
 				</ul>
 
-			</div>
+			</li>
 		);
 	}
 });

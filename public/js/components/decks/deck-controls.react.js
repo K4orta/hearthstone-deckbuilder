@@ -20,8 +20,12 @@ var Collection = React.createClass({
 	render: function() {
 		return (
 			<div className='deck-index__controls'>
-				<input type='text' ref='newDeck' placeholder={createInstructions}> </input>
-				<button className='deck-index__create-btn' onClick={this._createDeck}>+</button>
+				<div className='deck-index__create-wrapper'>
+					<input type='text' ref='newDeck' placeholder={createInstructions}> </input>
+					<button className='deck-index__create-btn' onClick={this._createDeck}>
+						<i className='fa fa-plus' />
+					</button>
+				</div>
 			</div>
 		);
 	}

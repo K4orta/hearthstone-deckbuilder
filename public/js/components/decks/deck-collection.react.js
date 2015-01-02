@@ -1,11 +1,19 @@
 var React = require('react'),
 	DeckStore = require('../../stores/deck-store'),
 	DeckActions = require('../../actions/deck-actions'),
-	Deck = require('./deck-view.react');
+	Deck = require('./deck-view.react'),
+	Router = require('react-router');
 
 var Collection = React.createClass({
+	mixins: [Router.State],
 	_changeDeck: function(e) {
 		DeckActions.changeActiveDeck(parseInt(e.target.dataset.id));
+	},
+	componentDidMount: function() {
+		var params = this.getParams();
+		if (params.deckId != null) {
+			DeckActions.changeActiveDeck(parseInt(params.deckId));
+		}
 	},
 	render: function() {
 		var currentDeckId = DeckStore.getCurrentDeckId();

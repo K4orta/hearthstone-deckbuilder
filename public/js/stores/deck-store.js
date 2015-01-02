@@ -24,6 +24,10 @@ createDeck({
 	name: 'Default'
 });
 
+createDeck({
+	name: 'Deck The 2nd'
+});
+
 var addCard = function(action) {
 	var deck = _collection[action.id];
 	if (_.every([

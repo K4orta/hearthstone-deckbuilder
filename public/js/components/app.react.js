@@ -17,6 +17,7 @@ var App = React.createClass({
 
 var routes = (
 	<Route path='/' name='index' handler={App}>
+		<Route name='decks/:deckId' handler={Index} ignoreScrollBehavior />
 		<DefaultRoute handler={Index}/>
 	</Route>
 );

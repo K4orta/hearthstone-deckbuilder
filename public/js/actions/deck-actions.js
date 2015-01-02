@@ -20,6 +20,12 @@ var DeckActions = {
 			actionType: DeckConstants.DECK_SET_ACTIVE,
 			id: deckId
 		});
+	},
+	destroy: function(deckId) {
+		AppDispatcher.handleViewAction({
+			actionType: DeckConstants.DECK_DESTROY,
+			id: deckId
+		});
 	}
 };
 
