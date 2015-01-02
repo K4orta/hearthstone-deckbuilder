@@ -24,23 +24,30 @@ createDeck({
 	name: 'Default'
 });
 
-createDeck({
-	name: 'Deck The 2nd'
-});
-
 var addCard = function(action) {
-	var deck = _collection[action.id];
+	var deck = _.findWhere(_collection, {id: action.id});
 	if (_.every([
 			DeckRules.deckLimit(deck),
 			DeckRules.cardLimit(deck, action.card)
 		])) {
-		_collection[action.id].cards.push(action.card);
+		deck.cards.push(action.card);
 	}
 };
 
 var setActiveDeck = function(action) {
-	console.log(action.id);
 	currentDeck = action.id;
+};
+
+var removeDeck = function(action) {
+	var deleteIndex = _.findIndex(_collection, function(deck) {
+		return deck.id === action.id;	
+	});
+
+	delete _collection[deleteIndex];
+	_collection = _.compact(_collection);
+	if (currentDeck == action.id) {
+		currentDeck = _.first(_collection).id;
+	}
 };
 
 var Store = assign({}, EventEmitter.prototype, {
@@ -51,10 +58,10 @@ var Store = assign({}, EventEmitter.prototype, {
 		return currentDeck;
 	},
 	getCurrentDeck: function() {
-		return _collection[currentDeck];
+		return _.findWhere(_collection, {id: currentDeck});
 	},
 	getDeck: function(id) {
-		return _collection[id];
+		return _.findWhere(_collection, {id: id});
 	},
 	getUsedCards: function(deck) {
 		return _.countBy(deck.cards, function(card) {
@@ -84,6 +91,9 @@ AppDispatcher.register(function(payload) {
 			break;
 		case DeckConstants.DECK_SET_ACTIVE:
 			setActiveDeck(action);
+			break;
+		case DeckConstants.DECK_DESTROY:
+			removeDeck(action);
 			break;
 		default:
 			return true;

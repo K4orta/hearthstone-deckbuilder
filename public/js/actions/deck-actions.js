@@ -21,7 +21,7 @@ var DeckActions = {
 			id: deckId
 		});
 	},
-	destroy: function(deckId) {
+	destroyDeck: function(deckId) {
 		AppDispatcher.handleViewAction({
 			actionType: DeckConstants.DECK_DESTROY,
 			id: deckId

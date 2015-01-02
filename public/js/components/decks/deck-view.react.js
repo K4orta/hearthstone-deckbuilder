@@ -38,7 +38,7 @@ var Deck = React.createClass({
 					</Link>
 					({this.props.data.cards.length}/30)
 				</h4>
-				<i className='fa fa-trash-o deck__destroy-icon' onClick={this.props.handleDeckRemove} />
+				<i className='fa fa-trash-o deck__destroy-icon' data-id={this.props.data.id} onClick={this.props.handleDeckDestroy} />
 				<ul className='deck__card-list'>
 					{cards}
 				</ul>

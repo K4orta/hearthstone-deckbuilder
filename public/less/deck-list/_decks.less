@@ -8,7 +8,7 @@
 	z-index: 2;
 	overflow: auto;
 	.min-mq(@sm, {
-		padding: .5rem 1rem;
+		padding: .5rem 0;
 		top: 0;
 		left: 0;
 		height: 100%;
@@ -27,6 +27,10 @@
 	max-height: 3rem;
 	transition: max-height .4s ease-out;
 	overflow: hidden;
+	border-bottom: 1px solid black;
+	.min-mq(@sm, {
+		padding: 0 1rem;
+	});
 }
 
 .deck.active {
@@ -35,7 +39,7 @@
 }
 
 .deck__title {
-	font-size: 1.25rem;
+	font-size: 1.128rem;
 	line-height: 3rem;
 	float: left;
 }
@@ -76,6 +80,7 @@
 
 .deck__destroy-icon {
 	float: right;
+	cursor: pointer;
 	line-height: 3rem;
 }
 
