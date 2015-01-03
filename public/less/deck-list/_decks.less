@@ -1,14 +1,19 @@
 .deck-panel {
 	width: 100%;
 	position: fixed;
-	background-color: #A0815D;
+	background-color: @deck-panel-background;
 	height: 100%;
-	padding: 0 1rem;
+	padding: .5rem 0;
 	z-index: 4;
 	overflow: auto;
+	transition: transform .33s ease-out;
 	transform: translateX(-100%);
+
+	.deck-menu-open & {
+		transform: translateX(0);
+	}
+
 	.min-mq(@sm, {
-		padding: .5rem 0;
 		top: 0;
 		left: 0;
 		height: 100%;
@@ -21,7 +26,10 @@
 .deck-list {
 	color: white;
 	list-style: none;
-	padding: 0;	
+	padding-bottom: @mana-curve-height + 3rem;
+	.min-mq(@sm, {
+		padding: 0;
+	});
 }
 
 .deck {
@@ -29,14 +37,12 @@
 	transition: max-height .4s ease-out;
 	overflow: hidden;
 	border-bottom: 1px solid @body-text-color;
-	.min-mq(@sm, {
-		padding: 0 1rem;
-	});
+	padding: 0 1rem;
 }
 
 .deck.active {
 	transition: max-height .9s;
-	max-height: 50rem;
+	max-height: 64rem;
 }
 
 .deck__title {
@@ -57,10 +63,7 @@
 }
 
 .deck-index__controls {
-	display: none;
-	.min-mq(@sm, {
-		display: block;
-	});
+	display: block;
 }
 
 .deck-index__create-wrapper {
@@ -99,6 +102,7 @@
 
 .deck__card-list__item {
 	padding: .25rem .5rem;
+	padding-right: 0;
 	margin: .25rem 0;
 	color: @body-text-color;
 	background-color: fade(@collection-background, 60%);
@@ -128,5 +132,6 @@
 
 .card-list__item__remove-button {
 	float: right;
+	padding: 0 .5rem;
 	cursor: pointer;
 }

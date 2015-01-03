@@ -7,13 +7,42 @@
 }
 
 .deck-menu {
-	background-color: brown;
+	background-color: @deck-panel-background;
 	color :white;
 	height: 3rem;
-	padding: 0 1rem;
+	padding: 0; 
+	padding-left: 1rem;
+	transition: background-color .2s;
+
+	.min-mq(@sm, {
+		display: none;
+	});
+
+	.deck-menu-open & {
+		pointer-events: none;
+		transition: background-color .3s ease-out .3s;
+		background-color: transparent;
+	}
+}
+
+.deck-menu .deck__title {
+	transition: opacity .3s ease-out;
+}
+
+.deck-menu-open .deck-menu .deck__title {
+	opacity: 0;
 }
 
 .deck-menu__options {
 	line-height: 3;
+	padding: 0 1rem;
 	float: right;
+	pointer-events: auto;
+	background-color: transparent;
+	transition: background-color .4s ease-out .1s;
+	border-radius: .5rem 0 0 .5rem;
+
+	.deck-menu-open & {
+		background-color: @deck-panel-background;
+	}
 }

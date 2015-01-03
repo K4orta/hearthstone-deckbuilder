@@ -16,6 +16,9 @@ var DeckTools = React.createClass({
 			deck: DeckStore.getCurrentDeck() 
 		});
 	},
+	_deckOptionClick: function(e) {
+		document.querySelector('.deckbuilder').classList.toggle('deck-menu-open');
+	},
 	render: function() {
 		return (
 			<div className='deck-tools'>
@@ -23,7 +26,7 @@ var DeckTools = React.createClass({
 					<div className='deck__title'>
 						{this.state.deck.name} ({this.state.deck.cards.length}/30)
 					</div>
-					<i className='fa fa-reorder deck-menu__options' />
+					<i className='fa fa-reorder deck-menu__options' onClick={this._deckOptionClick}/>
 				</div>
 				<ManaCurve />
 			</div>
