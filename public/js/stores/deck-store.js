@@ -22,7 +22,7 @@ var createDeck = function(action) {
 
 //TODO: REMOVE THIS
 createDeck({
-	name: 'Default'
+	name: 'New Deck'
 });
 
 var addCard = function(action) {

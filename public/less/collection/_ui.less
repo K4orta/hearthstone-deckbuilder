@@ -1,8 +1,32 @@
 .collection-tools {
 	padding: .5rem 1rem;
 	background-color: brown;
+	position: fixed;
+	width: 100%;
+	left: 0;
+	z-index: 3;
+
+	.min-mq(@sm, {
+		padding-left: @sidebar-width + 1rem;
+	});
+}
+
+.search {
+	position: relative;
+	.min-mq(@sm, {
+		max-width: 20rem;
+	});
+}
+
+.search__icon {
+	position: absolute;
+	right: .75rem;
+	top: .25rem;
+	color: brown;
+	font-size: 1.25rem;
 }
 
 .search__input {
 	padding: .5rem;
+	padding-right: 2.25rem;
 }

@@ -2,8 +2,8 @@ var React = require('react'),
 	Collection = require('./collection.react'),
 	Heroes = require('./hero-selector.react'),
 	HeroStore = require('../stores/hero-store'),
-	Decks = require('./decks/index.react'),
-	ManaCurve = require('./mana-curve/index.react'), 
+	Decks = require('./decks/index.react'), 
+	DeckTools = require('./deck-tools.react'), 
 	_ = require('lodash');
 
 var Index = React.createClass({
@@ -17,9 +17,9 @@ var Index = React.createClass({
 				// <Heroes data={HeroStore.getAll()} onChange={this.switchHero}/>
 		return (
 			<div> 
-				<Collection hero={this.state.currentHero} />
-				<ManaCurve />
 				<Decks />
+				<Collection hero={this.state.currentHero} />
+				<DeckTools />
 			</div>
 		);
 	},

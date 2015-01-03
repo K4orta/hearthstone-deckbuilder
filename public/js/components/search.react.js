@@ -17,7 +17,10 @@ module.exports = React.createClass({
 	render: function() {
 		var query = this.getQuery();
 		return (
-			<input className='search__input' ref='searchField' type='text' value={query.search} onChange={this._onInput}></input>
+			<div className='search'>
+				<input className='search__input' ref='searchField' type='text' value={query.search} onChange={this._onInput}></input>
+				<i className='fa fa-search search__icon' />
+			</div>
 		);
 	}
 });

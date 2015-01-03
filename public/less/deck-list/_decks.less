@@ -2,17 +2,18 @@
 	width: 100%;
 	position: fixed;
 	background-color: #A0815D;
-	bottom: @mana-curve-height;
-	height: 3rem;
+	height: 100%;
 	padding: 0 1rem;
-	z-index: 2;
+	z-index: 4;
 	overflow: auto;
+	transform: translateX(-100%);
 	.min-mq(@sm, {
 		padding: .5rem 0;
 		top: 0;
 		left: 0;
 		height: 100%;
 		width: @sidebar-width;
+		transform: translateX(0);
 		padding-bottom: @mana-curve-height;
 	});
 }
