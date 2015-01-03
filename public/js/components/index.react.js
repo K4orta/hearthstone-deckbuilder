@@ -1,5 +1,5 @@
 var React = require('react'),
-	Collection = require('./collection.react'),
+	Collection = require('./collection/collection.react'),
 	Heroes = require('./hero-selector.react'),
 	HeroStore = require('../stores/hero-store'),
 	Decks = require('./decks/index.react'), 

@@ -1,8 +1,8 @@
 var React = require('react'),
 	CardView = require('./card-collection-view.react'),
-	DeckActions = require('../actions/deck-actions'),
-	DeckStore = require('../stores/deck-store'),
-	Cards = require('../stores/card-store'),
+	DeckActions = require('../../actions/deck-actions'),
+	DeckStore = require('../../stores/deck-store'),
+	Cards = require('../../stores/card-store'),
 	_ = require('lodash');
 
 var CardList = React.createClass({

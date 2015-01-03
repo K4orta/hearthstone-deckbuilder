@@ -1,11 +1,11 @@
 var React = require('react'),
 	_ = require('lodash'),
-	Cards = require('../stores/card-store'),
+	Cards = require('../../stores/card-store'),
 	Pagination = require('./pagination.react'),
 	CardList = require('./card-list.react'),
 	Router = require('react-router'), 
 	Search = require('./search.react'),
-	Filters = require('../utils/card-filters');
+	Filters = require('../../utils/card-filters');
 
 var Collection = React.createClass({
 	mixins: [Router.State],
