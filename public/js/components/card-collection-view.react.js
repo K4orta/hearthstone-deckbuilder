@@ -6,7 +6,7 @@ var Collection = React.createClass({
 			attackIcon,
 			healthIcon,
 			usedTag,
-			allUsed;
+			cardClass = 'hs-card';
 
 		if (card.attack) {
 			attackIcon = (
@@ -27,15 +27,16 @@ var Collection = React.createClass({
 			}
 
 			if (this.props.used === cardLimit) {
-				allUsed = true;
+				cardClass += ' card-limit'
 			}
 			usedTag = (
 				<div className='hs-card__used-tag'>{this.props.used}/{cardLimit}</div>
 			);
+
 		}
 
 		return (
-			<li className={'hs-card' + (allUsed ? ' card-limit' : '')} data-id={card.id} onClick={this.props.onClick}>
+			<li className={cardClass} data-id={card.id} onClick={this.props.onClick}>
 				<div className='hs-card__mana'>{card.mana}</div>
 				{usedTag}
 				{attackIcon}

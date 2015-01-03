@@ -25,9 +25,9 @@
 	}
 	
 	&:active {
-		background-color: @ui-border-color;
+		background-color: darken(@ui-border-color, 20%);
 		.min-mq(@md, {
-			transition: transform .05s ease-out;
+			transition: transform .01s ease-out;
 			background-color: transparent;
 			transform: scale(1);
 		});
