@@ -1,6 +1,6 @@
 .collection-tools {
 	padding: .5rem 1rem;
-	background-color: brown;
+	background-color: @search-color;
 	position: fixed;
 	backface-visibility: hidden;
 	width: 100%;
@@ -15,11 +15,14 @@
 
 .search {
 	position: relative;
-	.min-mq(@sm, {
+	margin-right: 2rem;
+	.min-mq(@md, {
+		width: 100%;
 		max-width: 20rem;
 		margin-right: 1rem;
 		display: inline-block;
 		float: right;
+		margin-right: 0;
 	});
 }
 
@@ -28,7 +31,7 @@
 	right: 0;
 	top: -.25rem;
 	padding: .5rem;
-	color: brown;
+	color: @search-color;
 	font-size: 1.25rem;
 }
 
@@ -37,13 +40,43 @@
 	padding-right: 2.25rem;
 }
 
-// Filters 
+// Filters
+.collection-tools__filter-btn {
+	position: absolute;
+	top: 0rem;
+	z-index: 3rem;
+	padding: 0 1rem;
+	right: 0rem;
+	.min-mq(@md, {
+		display: none;
+	});
+}
+
+.collection-tools__filter-btn i {
+	font-size: 1.25rem;
+	color: white;
+	line-height: 3rem;
+	text-shadow: 2px 2px 0 fade(black, 30%);
+}
+
 .filter-bar {
 	display: none;
 
-	.min-mq(@sm, {
+	.min-mq(@md, {
+		float: left;
 		display: inline-block;
 	});
+}
+
+.option-group {
+	margin-right: 1rem;
+}
+
+.option-group.mana {
+	display: block;
+	.min-mq(@lg, {
+		display: inline-block;
+	});	
 }
 
 .filter-bar__label {

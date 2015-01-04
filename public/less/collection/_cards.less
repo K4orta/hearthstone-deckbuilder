@@ -21,7 +21,7 @@
 	position: relative;
 	background-color: transparent;
 	transition: background-color .5s ease-out, transform .25s ease-out;
-	
+	user-select: none;
 	&:hover {
 		.min-mq(@md, {
 			transform: scale(1.1);
@@ -29,7 +29,8 @@
 	}
 	
 	&:active {
-		background-color: darken(@ui-border-color, 20%);
+		background-color: darken(@collection-background, 10%);
+		transition: background-color .05s ease-out;
 		.min-mq(@md, {
 			transition: transform .01s ease-out;
 			background-color: transparent;
@@ -163,11 +164,13 @@
 .hs-card__title {
 	margin-bottom: .5rem;
 	font-size: 1.25rem;
+
 }
 
 .hs-card__description, .hs-card__title {
 	padding-left: 6rem;
 	text-align: left;
+	user-select: initial;
 	color: @body-text-color;
 	.min-mq(@md, {
 		display: none;

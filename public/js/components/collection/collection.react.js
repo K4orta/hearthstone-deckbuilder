@@ -57,6 +57,9 @@ var Collection = React.createClass({
 				<div className='collection-tools'>
 					<FilterBar />
 					<Search />
+					<button className='collection-tools__filter-btn'>
+						<i className='fa fa-filter'/>
+					</button>
 				</div>
 				<CardList data={filteredCards} />
 			</section>

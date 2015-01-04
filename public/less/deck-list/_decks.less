@@ -5,6 +5,7 @@
 	background-color: @deck-panel-background;
 	height: 100%;
 	padding: 0;
+	top: 0;
 	z-index: 4;
 	overflow: auto;
 	transition: transform .33s ease-out;
@@ -15,7 +16,6 @@
 	}
 
 	.min-mq(@sm, {
-		top: 0;
 		left: 0;
 		bottom: @mana-curve-height;
 		height: auto;

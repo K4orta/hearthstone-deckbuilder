@@ -25,11 +25,14 @@ a {
 
 .btn {
 	border-radius: 5px;
-	border: 1px solid @deck-border-color;
+	border: 1px solid darken(@button-background-color, 10%);
 	padding: .35rem .5rem;
 	margin-right: .5rem;
 	box-shadow: 2px 2px 5px fade(black, 10%);
+	text-shadow: 2px 2px 0 fade(black, 30%);
 	cursor: pointer;
+	background: @button-background-color;
+	// color: #ddd;
 	transition: box-shadow .25s; 
 
 	&:hover {
