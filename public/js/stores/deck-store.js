@@ -22,7 +22,8 @@ var createDeck = function(action) {
 
 //TODO: REMOVE THIS
 createDeck({
-	name: 'New Deck'
+	name: 'New Mage Deck',
+	hero: 'mage'
 });
 
 var addCard = function(action) {

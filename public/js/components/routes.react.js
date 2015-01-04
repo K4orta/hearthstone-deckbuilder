@@ -8,6 +8,7 @@ var React = require('react'),
 module.exports = (
 	<Route path='/' name='index' handler={App}>
 		<Route name='decks/:deckId' handler={Index} ignoreScrollBehavior />
+		<Route name='decks/' handler={Index} ignoreScrollBehavior />
 		<DefaultRoute handler={Index}/>
 	</Route>
 );

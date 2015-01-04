@@ -6,12 +6,33 @@ module.exports = React.createClass({
 		Router.Navigation,
 		Router.State
 	],
+	getInitialState: function() {
+		var query = this.getQuery();
+		return {
+			input: query.search || '' 
+		};
+	},
+	render: function() {
+		
+		var icon = 'fa-search'
+		if (this.state.input !== '') {
+			icon = 'fa-times';
+		}
+
+		return (
+			<div className='search'>
+				<input className='search__input' ref='searchField' type='text' value={this.state.input} onChange={this._onInput} onBlur={this._onBlur} onFocus={this._onFocus} onKeyPress={this._onKeyPress}></input>
+				<i className={'fa '+ icon +' search__icon'} onClick={this._clearInput} />
+			</div>
+		);
+	},
 	_onInput: function(e) {
 		var searchQuery = this.refs.searchField.getDOMNode().value,
 			queryParam;
 		if (searchQuery) {
 			queryParam = {search: searchQuery};
 		}
+		this.setState({input: searchQuery});
 		this.replaceWith('/', {}, queryParam);
 	},
 	_onBlur: function(e) {
@@ -25,14 +46,10 @@ module.exports = React.createClass({
 			this.refs.searchField.getDOMNode().blur();
 		}
 	},
-	render: function() {
-		var query = this.getQuery();
-		return (
-			<div className='search'>
-				<input className='search__input' ref='searchField' type='text' value={query.search} onChange={this._onInput} onBlur={this._onBlur} onFocus={this._onFocus} onKeyPress={this._onKeyPress}></input>
-				<i className='fa fa-search search__icon' />
-			</div>
-		);
+	_clearInput: function() {
+		this.refs.searchField.getDOMNode().value = '';
+		this.setState({input: ''});
+		this.replaceWith('/', {}, {});
 	}
 });
 

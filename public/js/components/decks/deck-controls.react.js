@@ -20,11 +20,13 @@ var Collection = React.createClass({
 					<i className='fa fa-plus'/> Create Deck
 				</button>
 				<div className={'deck-index__create-wrapper' + (this.state.menuOpen? ' is-open' : '')}>
-					<label>Class:</label>
-					<Heroes ref='heroSelect' />
-					<label>Deck Name:</label>
-					<input type='text' ref='newDeck' placeholder={createInstructions} onBlur={this._onBlur} onFocus={this._onFocus} onKeyPress={this._onKeyPress}> </input>
-					
+					<div className='create-wrapper__form-group'>
+						<label>Class:</label>
+						<Heroes ref='heroSelect' />
+						<label>Deck Name:</label>
+						<input type='text' ref='newDeck' placeholder={createInstructions} onBlur={this._onBlur} onFocus={this._onFocus} onKeyPress={this._onKeyPress}> </input>
+					</div>
+
 					<div className='create-wrapper__button-group'>
 						<button className='btn deck-index__create-btn' onClick={this._createDeck}>
 							<i className='fa fa-check' /> Create

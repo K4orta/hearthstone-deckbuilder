@@ -18,7 +18,10 @@ var Collection = React.createClass({
 	componentDidMount: function() {
 		var params = this.getParams();
 		if (params.deckId != null) {
-			DeckActions.changeActiveDeck(parseInt(params.deckId));
+			var activeDeck = DeckStore.getDeck(parseInt(params.deckId));
+			if(activeDeck != null) {
+				DeckActions.changeActiveDeck(parseInt(params.deckId));
+			}
 		}
 	},
 	render: function() {
