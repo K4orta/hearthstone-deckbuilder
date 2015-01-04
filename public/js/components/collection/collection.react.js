@@ -13,20 +13,20 @@ var Collection = React.createClass({
 	getInitialState: function() {
 		return {
 			hero: DeckStore.getCurrentDeck().deckType,
-			usedCards: this._getCurrentUsedCards()
 		};
 	},
 	componentDidMount: function() {
 		DeckStore.addChangeListener(this._onChange);
 	},
-	_getCurrentUsedCards: function() {
-		return DeckStore.getUsedCards(DeckStore.getCurrentDeck());
-	},
 	_onChange: function() {
-		this.setState({
-			hero: DeckStore.getCurrentDeck().deckType,
-			usedCards: this._getCurrentUsedCards()
-		});
+		var newHero = DeckStore.getCurrentDeck().deckType;
+
+		// Don't rerender the whole list if nothing changed
+		if (newHero !== this.state.hero) {
+			this.setState({
+				hero: DeckStore.getCurrentDeck().deckType,
+			});
+		}
 	},
 	render: function() {
 		var filters = [
@@ -56,7 +56,7 @@ var Collection = React.createClass({
 				<div className='collection-tools'>
 					<Search/>
 				</div>
-				<CardList data={filteredCards} usedCards={this.state.usedCards} />
+				<CardList data={filteredCards} />
 			</section>
 		);
 	}

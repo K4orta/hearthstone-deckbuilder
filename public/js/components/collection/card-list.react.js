@@ -6,12 +6,17 @@ var React = require('react'),
 	_ = require('lodash');
 
 var CardList = React.createClass({
-	_addCardToDeck: function(e) {
-		DeckActions.addCard(DeckStore.getCurrentDeckId(), Cards.getCard(parseInt(e.currentTarget.dataset.id)));
+	getInitialState: function() {
+		return {
+			usedCards: this._getCurrentUsedCards()
+		};
+	},
+	componentDidMount: function() {
+		DeckStore.addChangeListener(this._onChange);
 	},
 	render: function() {
 		var cardList = this.props.data.map(function(card) {
-			return (<CardView data={card} key={card.id} used={this.props.usedCards[card.id]} onClick={this._addCardToDeck}/>);
+			return (<CardView data={card} key={card.id} used={this.state.usedCards[card.id]} onClick={this._addCardToDeck}/>);
 		}.bind(this));
 
 		return (
@@ -19,6 +24,18 @@ var CardList = React.createClass({
 				{cardList}
 			</ul>	
 		);
+	},
+	_onChange: function(e) {
+		// console.log(e);
+		this.setState({
+			usedCards: this._getCurrentUsedCards()
+		});
+	},
+	_addCardToDeck: function(e) {
+		DeckActions.addCard(DeckStore.getCurrentDeckId(), Cards.getCard(parseInt(e.currentTarget.dataset.id)));
+	},
+	_getCurrentUsedCards: function() {
+		return DeckStore.getUsedCards(DeckStore.getCurrentDeck());
 	}
 });
 
