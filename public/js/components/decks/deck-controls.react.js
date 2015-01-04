@@ -21,9 +21,9 @@ var Collection = React.createClass({
 				</button>
 				<div className={'deck-index__create-wrapper' + (this.state.menuOpen? ' is-open' : '')}>
 					<div className='create-wrapper__form-group'>
-						<label>Class:</label>
+						<label className='create-wrapper__label'>Class:</label>
 						<Heroes ref='heroSelect' />
-						<label>Deck Name:</label>
+						<label className='create-wrapper__label'>Deck Name:</label>
 						<input type='text' ref='newDeck' placeholder={createInstructions} onBlur={this._onBlur} onFocus={this._onFocus} onKeyPress={this._onKeyPress}> </input>
 					</div>
 

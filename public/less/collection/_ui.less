@@ -17,13 +17,16 @@
 	position: relative;
 	.min-mq(@sm, {
 		max-width: 20rem;
+		margin-right: 1rem;
+		display: inline-block;
 	});
 }
 
 .search__icon {
 	position: absolute;
-	right: .75rem;
-	top: .25rem;
+	right: 0;
+	top: -.25rem;
+	padding: .5rem;
 	color: brown;
 	font-size: 1.25rem;
 }
@@ -32,3 +35,39 @@
 	padding: .5rem;
 	padding-right: 2.25rem;
 }
+
+// Filters 
+.filter-bar {
+	display: none;
+
+	.min-mq(@sm, {
+		display: inline-block;
+	});
+}
+
+.filter-bar__option {
+	display: inline-block;
+}
+
+.filter-bar__label {
+	color: white;
+	border: 2px solid white;
+	padding: .2rem .5rem;
+	font-size: .75rem;
+	border-radius: 5px;
+	cursor: pointer;
+	user-select: none;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.filter-bar__checkbox:checked + label {
+	border: 2px solid red;
+}
+
+.filter-bar__checkbox {
+	position: absolute;
+	left: -9999rem;
+	opacity: 0;
+}
+

@@ -1,12 +1,12 @@
 .deck-index__controls {
 	display: block;
 	padding: .5rem 1rem;
-	border-bottom: 1px solid @body-text-color;
+	border-bottom: 1px solid @deck-border-color;
 }
 
 .deck-index__controls__new-deck {
 	width: 100%;
-	// margin-bottom: 1rem;
+	color: @button-text-color;
 }
 
 .deck-index__create-wrapper {
@@ -19,6 +19,10 @@
 
 .create-wrapper__form-group {
 	padding-top: 1rem;
+}
+
+.create-wrapper__label {
+	color: white;
 }
 
 .deck-index__create-wrapper.is-open {
@@ -38,11 +42,13 @@
 
 .hero-selector {
 	width: 100%;
-
-	font-size: 1.25rem;
+	height: 2.25rem;
+	font-size: 1rem;
 	line-height: 1rem;
 	margin-bottom: .5rem;
 	border: none;
+	border-radius: 5px;
+	color: #333;
 }
 
 .hero-selector__option {
@@ -53,6 +59,10 @@
 .create-wrapper__button-group {
 	clear: both;
 	float: right;
+}
+
+.create-wrapper__button-group button {
+	color: @button-text-color;
 }
 
 .create-wrapper__button-group button:last-child {

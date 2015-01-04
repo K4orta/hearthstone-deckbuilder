@@ -6,7 +6,8 @@ var React = require('react'),
 	Router = require('react-router'), 
 	Search = require('./search.react'),
 	Filters = require('../../utils/card-filters'),
-	DeckStore = require('../../stores/deck-store');
+	DeckStore = require('../../stores/deck-store'),
+	FilterBar = require('../filters/filter-bar.react');
 
 var Collection = React.createClass({
 	mixins: [Router.State],
@@ -54,7 +55,8 @@ var Collection = React.createClass({
 		return (
 			<section className='collection-view'>
 				<div className='collection-tools'>
-					<Search/>
+					<Search />
+					<FilterBar />
 				</div>
 				<CardList data={filteredCards} />
 			</section>

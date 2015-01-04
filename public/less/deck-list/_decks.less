@@ -27,7 +27,7 @@
 .deck-list {
 	color: white;
 	list-style: none;
-	padding-bottom: @mana-curve-height + 3rem;
+	padding-bottom: @mana-curve-height + 6rem;
 	.min-mq(@sm, {
 		padding: 0;
 	});
@@ -71,6 +71,7 @@
 	cursor: pointer;
 	line-height: 3rem;
 	padding: 0 .5rem;
+	text-shadow: 2px 2px fade(black, 20%);
 }
 
 .deck__card-list {
@@ -79,16 +80,11 @@
 
 .deck__card-list__item {
 	padding: .75rem 0;
-	// margin: .25rem 0;
 	border-bottom: 1px dotted @deck-border-color;
 }
 
 .deck__card-list__item:last-child {
 	border-bottom: none;
-}
-
-.deck__card-list .deck__card-list__item:last-child {
-	margin-bottom: 1rem;
 }
 
 .card-list__item__quality-gem {
