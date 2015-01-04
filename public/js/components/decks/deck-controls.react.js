@@ -8,15 +8,59 @@ var createInstructions = 'Deck Name',
 
 
 var Collection = React.createClass({
+	getInitialState: function() {
+		return {
+			menuOpen: false
+		};
+	},
+	render: function() {
+		return (
+			<div className='deck-index__controls'>
+				<button className='btn deck-index__controls__new-deck' onClick={this._startCreate}>
+					<i className='fa fa-plus'/> Create Deck
+				</button>
+				<div className={'deck-index__create-wrapper' + (this.state.menuOpen? ' is-open' : '')}>
+					<label>Class:</label>
+					<Heroes ref='heroSelect' />
+					<label>Deck Name:</label>
+					<input type='text' ref='newDeck' placeholder={createInstructions} onBlur={this._onBlur} onFocus={this._onFocus} onKeyPress={this._onKeyPress}> </input>
+					
+					<div className='create-wrapper__button-group'>
+						<button className='btn deck-index__create-btn' onClick={this._createDeck}>
+							<i className='fa fa-check' /> Create
+						</button>
+						<button className='btn' onClick={this._cancelCreate}>
+							<i className='fa fa-times' /> Cancel
+						</button>
+					</div>
+				</div>
+			</div>
+		);
+	},
+	_startCreate: function(e) {
+		this.setState({
+			menuOpen: !this.state.menuOpen
+		});
+	},
+	_cancelCreate: function() {
+		this.setState({
+			menuOpen: false
+		});
+	},
 	_createDeck: function(e) {
-		var nameField = this.refs.newDeck.getDOMNode();
-		var newDeckName = nameField.value;
+		var nameField = this.refs.newDeck.getDOMNode(),
+			newDeckName = nameField.value,
+			newDeckHero = this.refs.heroSelect.getDOMNode().value;
+
 		if (newDeckName === '') {
 			nameField.setAttribute('placeholder', createEmptyError);
 		} else {
-			DeckActions.create(newDeckName);
+			DeckActions.create(newDeckName, newDeckHero);
 			nameField.value = '';
 			nameField.setAttribute('placeholder', createInstructions);
+			this.setState({
+				menuOpen: false
+			});
 		}
 	},
 	_onBlur: function(e) {
@@ -30,23 +74,6 @@ var Collection = React.createClass({
 			this.refs.newDeck.getDOMNode().blur();
 			this._createDeck();
 		}
-	},
-	render: function() {
-		return (
-			<div className='deck-index__controls'>
-				<button className='btn'>New Deck</button>
-				<div className='deck-index__create-wrapper'>
-					<Heroes />
-					<input type='text' ref='newDeck' placeholder={createInstructions} onBlur={this._onBlur} onFocus={this._onFocus} onKeyPress={this._onKeyPress}> </input>
-					<button className='btn deck-index__create-btn' onClick={this._createDeck}>
-						<i className='fa fa-check' /> Create
-					</button>
-					<button className='btn'>
-						<i className='fa fa-times' /> Cancel
-					</button>
-				</div>
-			</div>
-		);
 	}
 });
 

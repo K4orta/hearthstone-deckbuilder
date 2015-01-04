@@ -2,10 +2,11 @@ var AppDispatcher = require('../dispatcher/app-dispatcher'),
 	DeckConstants = require('../constants/deck');
 
 var DeckActions = {
-	create: function(name) {
+	create: function(name, hero) {
 		AppDispatcher.handleViewAction({
 			actionType: DeckConstants.DECK_CREATE,
-			name: name	
+			name: name,
+			hero: hero	
 		});
 	},
 	addCard: function(deckId, card) {

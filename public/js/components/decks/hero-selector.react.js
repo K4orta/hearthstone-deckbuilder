@@ -22,7 +22,9 @@ var Heroes = React.createClass({
 		);
 	},
 	_heroChanged: function(e) {
-		this.props.onChange(e);
+		if (this.props.onChange) {
+			this.props.onChange(e);	
+		}
 	}
 });
 

@@ -15,7 +15,7 @@ var createDeck = function(action) {
 		name: action.name,
 		id: _idIndex++,
 		cards: [],
-		deckType: 'neutral'
+		deckType: action.hero || 'neutral'
 	});
 	_currentDeck = _collection[0].id;
 };

@@ -96,7 +96,7 @@
 	font-weight: bold;
 	text-transform: uppercase;
 	margin-top: -.1rem;
-	margin-right: .25rem;
+	margin-right: .3rem;
 	position: relative;
 	display: inline-block;
 	border: 2px solid @mana-color;
@@ -106,12 +106,20 @@
 
 }
 
+.card-list__item__quality-gem.common {
+	border-color: @mana-color;
+}
+
+.card-list__item__quality-gem.rare {
+	border-color: @mana-color;
+}
+
 .card-list__item__quality-gem.epic {
 	border-color: @epic-color;
 }
 
 .card-list__item__quality-gem.legendary {
-	border-color: darken(@legendary-color, 8%);
+	border-color: @legendary-color;
 }
 
 .card-list__item__remove-button {
@@ -119,4 +127,5 @@
 	padding: 0 .5rem;
 	user-select: none;
 	cursor: pointer;
+	text-shadow: 2px 2px 0 fade(black, 20%);
 }
