@@ -19,6 +19,7 @@
 		max-width: 20rem;
 		margin-right: 1rem;
 		display: inline-block;
+		float: right;
 	});
 }
 
@@ -45,24 +46,30 @@
 	});
 }
 
-.filter-bar__option {
-	display: inline-block;
-}
-
 .filter-bar__label {
 	color: white;
+	font-size: .75rem;
 	border: 2px solid white;
 	padding: .2rem .5rem;
-	font-size: .75rem;
-	border-radius: 5px;
 	cursor: pointer;
 	user-select: none;
 	font-weight: bold;
 	text-transform: uppercase;
-}
+	display: inline-block;
+	text-shadow: 2px 2px 0 fade(black, 30%);
+	opacity: .5;
 
-.filter-bar__checkbox:checked + label {
-	border: 2px solid red;
+	&[data-checked=true] {
+		opacity: 1;
+	}
+
+	&:first-child {
+		border-radius: 5px 0 0 5px;
+	}
+
+	&:last-child {
+		border-radius: 0 5px 5px 0;
+	}
 }
 
 .filter-bar__checkbox {

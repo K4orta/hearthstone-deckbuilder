@@ -55,8 +55,8 @@ var Collection = React.createClass({
 		return (
 			<section className='collection-view'>
 				<div className='collection-tools'>
-					<Search />
 					<FilterBar />
+					<Search />
 				</div>
 				<CardList data={filteredCards} />
 			</section>
