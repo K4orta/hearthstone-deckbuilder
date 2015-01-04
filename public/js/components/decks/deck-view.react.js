@@ -1,7 +1,8 @@
 var React = require('react'),
 	_ = require('lodash'),
 	Router = require('react-router'),
-	Link = Router.Link;
+	Link = Router.Link,
+	Card = require('./deck-card.react');
 
 
 var Deck = React.createClass({
@@ -25,15 +26,8 @@ var Deck = React.createClass({
 		});
 
 		var cards = merged.map(function(card, i) {
-			var icon = (
-				<i className={'card-list__item__quality-gem ' + card.quality}>{card.category === 'spell'? 'S' : 'M'}</i>
-			); 
 			return (
-				<li className='deck__card-list__item' key={i}>
-					{icon}
-					<span>{card.name} x {multi[card.id]}</span>
-					<i className='fa fa-times-circle card-list__item__remove-button' data-id={card.id} data-deck={this.props.data.id} onClick={this.props.handleRemoveCard} />
-				</li>
+				<Card data={card} key={i} count={multi[card.id]} deck={this.props.data} handleRemoveCard={this.props.handleRemoveCard} />
 			);
 		}.bind(this));
 

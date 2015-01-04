@@ -17,6 +17,9 @@ var Filters = {
 	},
 	filterByHero: function(heroSlug) {
 		return function(cards) {
+			if (heroSlug == null) {
+				return cards;
+			} 
 			return _.filter(cards, function(card) {
 				return card.hero === 'neutral' || card.hero === heroSlug;
 			});

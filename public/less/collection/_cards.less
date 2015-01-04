@@ -1,12 +1,16 @@
 .collection-view {
 	background-color: @collection-background;
 	padding-bottom: @mana-curve-height;
-	overflow: auto;
+
+	.min-mq(@sm, {
+		margin-left: @sidebar-width;
+		padding-bottom: 0;
+	});
 }
 
 .card-list {
 	text-align: center;
-	padding-top: 3rem;
+	margin-top: 3rem;
 }
 
 .hs-card {
@@ -162,11 +166,5 @@
 	color: @body-text-color;
 	.min-mq(@md, {
 		display: none;
-	});
-}
-
-.collection-view {
-	.min-mq(@sm, {
-		padding-left: @sidebar-width;
 	});
 }
