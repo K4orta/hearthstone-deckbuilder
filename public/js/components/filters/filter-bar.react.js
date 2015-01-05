@@ -2,7 +2,9 @@ var React = require('react'),
 	OptGroup = require('./opt-group.react'),
 	Router = require('react-router'),
 	assign = require('object-assign'),
-	FilterActions = require('../../actions/filter-actions');
+	FilterActions = require('../../actions/filter-actions'),
+	FilterStore = require('../../stores/filter-store'),
+	_ = require('lodash');
 
 module.exports = React.createClass({
 	mixins: [
@@ -10,26 +12,8 @@ module.exports = React.createClass({
 		Router.State
 	],
 	getInitialState: function() {
-		return {
-			category: {
-				minion: false,
-				spell: false
-			},
-			'class': {
-				hero: false,
-				neutral: false
-			},
-			mana: {
-				0: false,
-				1: false,
-				2: false,
-				3: false,
-				4: false,
-				5: false,
-				6: false,
-				7: false
-			}
-		};
+		var update = _.pick(this.getQuery(), 'category', 'class', 'mana');
+		return update;
 	},
 	render: function() {
 		var groups = [];
@@ -37,16 +21,15 @@ module.exports = React.createClass({
 		return (
 			<section className='filter-bar'>
 				<form data-group='group1'>
-					<OptGroup group='category' items={['minion', 'spell']} callback={this._onChange}/>
-					<OptGroup group='class' items={['hero','neutral']} callback={this._onChange}/>
-					<OptGroup group='mana' items={[0,1,2,3,4,5,6,7]} callback={this._onChange}/>
+					<OptGroup group='category' selected={this.state.category} items={['minion', 'spell']} callback={this._onChange}/>
+					<OptGroup group='class' selected={this.state.class} items={['hero','neutral']} callback={this._onChange}/>
+					<OptGroup group='mana' selected={this.state.mana} items={['0','1','2','3','4','5','6','7']} callback={this._onChange}/>
 				</form>
 			</section>
 		);
 	},
-	_onChange: function(groupName, props) {
-		var update = {};
-		update[groupName] = props;
+	_onChange: function(props) {
+		var update = assign(this.state, props);
 		FilterActions.updateFilters(update, this);
 		this.setState(update);
 	} 

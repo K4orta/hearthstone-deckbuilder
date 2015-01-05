@@ -8,6 +8,15 @@ var FilterActions = {
 			update: update,
 			component: component
 		});
+	},
+	search: function(input, component) {
+		AppDispatcher.handleViewAction({
+			actionType: FilterConstants.SEARCH_CHANGE,
+			input: {
+				search: input
+			},
+			component: component
+		});	
 	}
 };
 

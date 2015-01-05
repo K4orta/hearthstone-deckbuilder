@@ -3,16 +3,14 @@ var React = require('react'),
 
 module.exports = React.createClass({
 	getInitialState: function() {
-		var state = {};
-		this.props.items.forEach(function(item) {
-			state[item] = false;
-		});
-		return state;
+		return {
+			selected: this.props.selected || null
+		};
 	},
 	render: function() {
 		var options = this.props.items.map(function(item) {
 			return (
-				<FilterOption key={item} name={item} checked={this.state[item]} callback={this._change} />
+				<FilterOption key={item} name={item} checked={this.state.selected === item} callback={this._change} />
 			);
 		}.bind(this));
 		return (
@@ -22,17 +20,19 @@ module.exports = React.createClass({
 		);
 	},
 	_change: function(e) {
-		var state = this.state;
-		state[e.currentTarget.id] = e.currentTarget.checked;
-		this.props.items.forEach(function(option) {
-			if (option != e.currentTarget.id) {
-				state[option] = false;
-			}
-		});
-		this.setState(state);
+		var state = {};
+		if (e.currentTarget.checked) {
+			state = {selected: e.currentTarget.id};
+		} else {
+			state = {selected: null};
+		}
 
+		this.setState(state);
+		
 		if (this.props.callback) {
-			this.props.callback(this.props.group, this.state);
+			var ret = {};		
+			ret[this.props.group] = state.selected;
+			this.props.callback(ret);
 		}
 	}
 });

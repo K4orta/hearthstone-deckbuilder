@@ -25,7 +25,7 @@ var Filters = {
 			});
 		};
 	},
-	filterBySearch: function(input) {
+	search: function(input) {
 		var lowerInput = input.toLowerCase()
 		return function(cards) {
 			return _.filter(cards, function(card) {
@@ -58,6 +58,9 @@ var Filters = {
 	mana: function(input) {
 		return function(cards) {
 			return _.filter(cards, function(card) {
+				if (input >= 7 && card.mana >=7){
+					return true;
+				}
 				return card.mana == input;
 			});
 		};

@@ -10,7 +10,9 @@ var React = require('react'),
 	FilterStore = require('../../stores/filter-store');
 
 var Collection = React.createClass({
+	mixins: [Router.State],
 	getInitialState: function() {
+		FilterStore.setFilters(_.pick(this.getQuery(), 'category', 'class', 'mana', 'search'));
 		return {
 			hero: DeckStore.getCurrentDeck().deckType,
 		};
@@ -23,7 +25,6 @@ var Collection = React.createClass({
 		var filteredCards = Cards.get({
 			filters: FilterStore.getFilters(this.state.hero)
 		});
-
 		return (
 			<section className='collection-view'>
 				<div className='collection-tools'>

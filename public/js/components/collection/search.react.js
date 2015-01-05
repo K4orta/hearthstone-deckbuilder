@@ -1,7 +1,9 @@
 var React = require('react'),
 	Router = require('react-router'),
 	assign = require('object-assign'),
-	_ = require('lodash');
+	_ = require('lodash'),
+	FilterStore = require('../../stores/filter-store'),
+	FilterActions = require('../../actions/filter-actions');
 
 module.exports = React.createClass({
 	mixins: [
@@ -9,10 +11,10 @@ module.exports = React.createClass({
 		Router.State
 	],
 	getInitialState: function() {
-		var query = this.getQuery();
-		return {
-			input: query.search || '' 
+		var query = {
+			input: this.getQuery().search || '' 
 		};
+		return query;
 	},
 	render: function() {
 		var icon = 'fa-search'
@@ -28,15 +30,10 @@ module.exports = React.createClass({
 		);
 	},
 	_onInput: function(e) {
-		var searchQuery = this.refs.searchField.getDOMNode().value,
-			queryParam;
-		if (searchQuery) {
-			queryParam = assign(this.getQuery(), {search: searchQuery});
-		} else {
-			queryParam = _.omit(this.getQuery(), 'search');
-		}
+		var searchQuery = this.refs.searchField.getDOMNode().value;
 		this.setState({input: searchQuery});
-		this.replaceWith(this.getPathname(), this.getParams(), queryParam);
+		FilterActions.search(searchQuery, this);
+		
 	},
 	_onBlur: function(e) {
 		document.querySelector('.deckbuilder').classList.remove('input-focused');
@@ -52,8 +49,7 @@ module.exports = React.createClass({
 	_clearInput: function() {
 		this.refs.searchField.getDOMNode().value = '';
 		this.setState({input: ''});
-		this.replaceWith(this.getPathname(), this.getParams(), _.omit(this.getQuery(), 'search'));
-		
+		FilterActions.search('', this);
 	}
 });
 

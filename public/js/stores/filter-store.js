@@ -5,9 +5,7 @@
  	_ = require('lodash'),
  	Filters = require('../utils/card-filters');
 
-
 var _filters = {},
-	_shortFilters = {},
 	CHANGE_EVENT = 'change';
 
 var Store = assign({}, EventEmitter.prototype, {
@@ -20,16 +18,16 @@ var Store = assign({}, EventEmitter.prototype, {
 			Filters.filterByHero(hero)
 		];
 
-		for (var a in _shortFilters) {
-			filters.push(Filters[a](_shortFilters[a]));
+		for (var a in _filters) {
+			filters.push(Filters[a](_filters[a]));
 		}
 
 		filters.push(Filters.sortBy('mana'));
 
 		return filters; 
 	},
-	setShortFilters: function(input) {
-		_shortFilters = input;
+	setFilters: function(input) {
+		_filters = assign(_filters, input);
 	},
 	emitChange: function() {
 		this.emit(CHANGE_EVENT);
@@ -52,23 +50,24 @@ var replaceQuery = function(provider, query, blacklist) {
 	);
 };
 
-var compactFilterList = function(filters) {
-	var stack = {};
-	for (var a in filters) {
-		for (var b in filters[a]) {
-			if (filters[a][b] === true) {
-				stack[a] = b;
-				break;
-			}
+var cleanFilters = function() {
+	for (var a in _filters) {
+		if (_filters[a] == null || _filters[a] === '') {
+			delete _filters[a];
 		}
 	}
-	return stack;
-};
+}
 
 var changeFilter = function(action) {
 	_filters = assign(_filters, action.update);
-	_shortFilters = compactFilterList(_filters);
-	replaceQuery(action.component, _shortFilters, ['category','class','mana']);
+	cleanFilters();
+	replaceQuery(action.component, _filters, ['category','class','mana']);
+};
+
+var changeSearch = function(action) {
+	_filters = assign(_filters, action.input);
+	cleanFilters();
+	replaceQuery(action.component, _filters, ['search']);
 };
 
 AppDispatcher.register(function(payload) {
@@ -76,6 +75,9 @@ AppDispatcher.register(function(payload) {
 	switch(action.actionType) {
 		case FilterContants.FILTER_CHANGE:
 			changeFilter(action);
+			break;
+		case FilterContants.SEARCH_CHANGE:
+			changeSearch(action);
 			break;
 		default:
 			return true;
