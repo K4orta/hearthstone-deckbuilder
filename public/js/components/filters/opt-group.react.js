@@ -8,9 +8,10 @@ module.exports = React.createClass({
 		};
 	},
 	render: function() {
+		console.log()
 		var options = this.props.items.map(function(item) {
 			return (
-				<FilterOption key={item} name={item} checked={this.state.selected === item} callback={this._change} />
+				<FilterOption key={item} name={item} checked={this.props.selected === item} callback={this._change} />
 			);
 		}.bind(this));
 		return (

@@ -1,11 +1,17 @@
 var React = require('react'),
 	_ = require('lodash'),
 	ManaBar = require('./mana-bar.react'),
-	DeckStore =require('../../stores/deck-store');
+	DeckStore = require('../../stores/deck-store'),
+	Router = require('react-router'),
+	FilterActions = require('../../actions/filter-actions');
 
 var manaBars = 7;
 
 module.exports = React.createClass({
+	mixins: [
+		Router.State,
+		Router.Navigation
+	],
 	componentDidMount: function() {
 		DeckStore.addChangeListener(this._onChange);
 	},
@@ -38,7 +44,7 @@ module.exports = React.createClass({
 	render: function() {
 		var bars = _.range(manaBars + 1).map(function(value) {
 			return (
-				<ManaBar label={value} ratio={this.state.ratio[value]} value={this.state.curve[value] != null ? this.state.curve[value] : 0} key={value} />
+				<ManaBar label={value} manaClick={this._clickMana} ratio={this.state.ratio[value]} value={this.state.curve[value] != null ? this.state.curve[value] : 0} key={value} />
 			);
 		}.bind(this));
 
@@ -47,6 +53,11 @@ module.exports = React.createClass({
 				{bars}
 			</ul>
 		);
+	},
+	_clickMana: function(e) {
+		FilterActions.filterMana({
+			mana: e.currentTarget.dataset.mana
+		}, this);
 	},
 	_onChange: function() {
 		var costCurve = this._calculateCurve(),

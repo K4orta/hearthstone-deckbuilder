@@ -1,11 +1,15 @@
 .collection-view {
 	background-color: @collection-background;
-	padding-bottom: @mana-curve-height;
+	padding-bottom: @mana-curve-height + 3rem;
 
 	.min-mq(@sm, {
 		margin-left: @sidebar-width;
 		padding-bottom: 0;
 	});
+
+	.input-focused & {
+		padding-bottom: 0;
+	}  
 }
 
 .card-list {

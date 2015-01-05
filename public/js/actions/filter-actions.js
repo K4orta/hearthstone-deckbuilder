@@ -17,7 +17,14 @@ var FilterActions = {
 			},
 			component: component
 		});	
-	}
+	},
+	filterMana: function(update, component) {
+		AppDispatcher.handleViewAction({
+			actionType: FilterConstants.FILTER_CHANGE,
+			update: update,
+			component: component
+		});
+	},
 };
 
 module.exports = FilterActions;

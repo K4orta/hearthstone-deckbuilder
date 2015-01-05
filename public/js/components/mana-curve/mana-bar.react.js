@@ -6,6 +6,7 @@ module.exports = React.createClass({
 		var ratioHeight = {
 			height: (this.props.ratio * 100) + '%'
 		};
+
 		return (
 			<li className='mana-curve__item'>
 				<div className='mana-bar'>
@@ -13,7 +14,7 @@ module.exports = React.createClass({
 					<div className='mana-bar__bar progress'>
 						<div className='mana-bar__bar__amount progress-bar' style={ratioHeight} />
 					</div>
-					<div className='mana-bar__label'>{this.props.label}</div>
+					<div className='mana-bar__label' data-mana={this.props.label} onClick={this.props.manaClick}>{this.props.label}</div>
 				</div> 
 			</li>
 		);

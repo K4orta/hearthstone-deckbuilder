@@ -15,9 +15,12 @@ module.exports = React.createClass({
 		var update = _.pick(this.getQuery(), 'category', 'class', 'mana');
 		return update;
 	},
+	componentDidMount: function() {
+		FilterStore.addChangeListener(function() {
+			this.setState(FilterStore.getAll());
+		}.bind(this));
+	},
 	render: function() {
-		var groups = [];
-
 		return (
 			<section className='filter-bar'>
 				<form data-group='group1'>
