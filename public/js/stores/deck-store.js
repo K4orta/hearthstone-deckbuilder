@@ -112,7 +112,7 @@ AppDispatcher.register(function(payload) {
 		default:
 			return true;
 	}
-
+	
 	Store.emitChange();
 	return true;
 });

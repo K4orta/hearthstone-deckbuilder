@@ -1,5 +1,7 @@
 var React = require('react'),
-	Router = require('react-router');
+	Router = require('react-router'),
+	assign = require('object-assign'),
+	_ = require('lodash');
 
 module.exports = React.createClass({
 	mixins: [
@@ -13,7 +15,6 @@ module.exports = React.createClass({
 		};
 	},
 	render: function() {
-		
 		var icon = 'fa-search'
 		if (this.state.input !== '') {
 			icon = 'fa-times';
@@ -30,10 +31,12 @@ module.exports = React.createClass({
 		var searchQuery = this.refs.searchField.getDOMNode().value,
 			queryParam;
 		if (searchQuery) {
-			queryParam = {search: searchQuery};
+			queryParam = assign(this.getQuery(), {search: searchQuery});
+		} else {
+			queryParam = _.omit(this.getQuery(), 'search');
 		}
 		this.setState({input: searchQuery});
-		this.replaceWith('/', {}, queryParam);
+		this.replaceWith(this.getPathname(), this.getParams(), queryParam);
 	},
 	_onBlur: function(e) {
 		document.querySelector('.deckbuilder').classList.remove('input-focused');
@@ -49,7 +52,8 @@ module.exports = React.createClass({
 	_clearInput: function() {
 		this.refs.searchField.getDOMNode().value = '';
 		this.setState({input: ''});
-		this.replaceWith('/', {}, {});
+		this.replaceWith(this.getPathname(), this.getParams(), _.omit(this.getQuery(), 'search'));
+		
 	}
 });
 

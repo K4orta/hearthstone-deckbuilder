@@ -24,7 +24,7 @@ var Store = assign({}, EventEmitter.prototype, {
 		return _.findWhere(_collection, {id: id});
 	},
 	emitChange: function() {
-		this.emitChange(CHANGE_EVENT);
+		this.emit(CHANGE_EVENT);
 	},
 	addChangeListener: function(callback) {
 		this.addListener(CHANGE_EVENT, callback);
@@ -35,8 +35,7 @@ var Store = assign({}, EventEmitter.prototype, {
 });
 
 AppDispatcher.register(function(payload) {
-	var action = payload.action,
-		text;
+	var action = payload.action;
 
 	switch(action.actionType) {
 		default:

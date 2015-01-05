@@ -31,8 +31,8 @@ module.exports = React.createClass({
 		});
 		this.setState(state);
 
-		if (this.props.onChange) {
-			this.props.onChange(this.props.group, this.state);
+		if (this.props.callback) {
+			this.props.callback(this.props.group, this.state);
 		}
 	}
 });

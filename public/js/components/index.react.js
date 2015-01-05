@@ -8,7 +8,7 @@ var Index = React.createClass({
 	render: function() {
 				// <Heroes data={HeroStore.getAll()} onChange={this.switchHero}/>
 		return (
-			<div> 
+			<div className='content'> 
 				<Decks />
 				<Collection />
 				<DeckTools />

@@ -35,6 +35,33 @@ var Filters = {
 			});
 		};
 	},
+	category: function(input) {
+		return function(cards) {
+			return _.filter(cards, function(card) {
+				return card.category === input;
+			});
+		};
+	},
+	'class': function(input) {
+		return function(cards) {
+			if (input === 'neutral') {
+				return _.filter(cards, function(card) {
+					return card.hero === 'neutral';
+				});	
+			} else {
+				return _.reject(cards, function(card) {
+					return card.hero === 'neutral';
+				});	
+			}
+		};
+	},
+	mana: function(input) {
+		return function(cards) {
+			return _.filter(cards, function(card) {
+				return card.mana == input;
+			});
+		};
+	},
 	paginateCards: function(options) {
 		var limit = options.perPage * (options.page + 1);
 		return options.cards.slice(options.page * options.perPage, limit);
