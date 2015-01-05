@@ -65,7 +65,7 @@ var changeFilter = function(action) {
 };
 
 var changeSearch = function(action) {
-	_filters = assign(_filters, action.input);
+	_filters = assign(_filters, action.input || '');
 	cleanFilters();
 	replaceQuery(action.component, _filters, ['search']);
 };
