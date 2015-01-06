@@ -11,6 +11,7 @@ app.get('/', function(req, res) {
 
 app.use(express.static(__dirname + '/public'));
 
+var port = process.env.PORT || 3000;
 var server = app.listen(3000, function() {
-	console.log("Started on port 3000");
+	console.log("Started on port " + port);
 });
