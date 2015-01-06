@@ -3,7 +3,6 @@ var React = require('react');
 module.exports = React.createClass({
 	render: function() {
 		var card = this.props.data;
-		// var fa = (card.category === 'spell' ? 'fa-bolt ' : 'fa-circle ');
 		var icon = (
 			<i className={'card-list__item__quality-gem ' + card.quality}>{card.mana}</i>
 		); 

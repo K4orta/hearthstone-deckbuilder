@@ -26,7 +26,6 @@ var CardList = React.createClass({
 		);
 	},
 	_onChange: function(e) {
-		// console.log(e);
 		this.setState({
 			usedCards: this._getCurrentUsedCards()
 		});
