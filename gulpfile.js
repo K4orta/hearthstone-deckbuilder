@@ -9,3 +9,9 @@ gulp.task('default', [
   'browserify',
   'watch'
 ]);
+
+gulp.task('build', [
+  'less',
+  'react',
+  'browserify'
+]);
