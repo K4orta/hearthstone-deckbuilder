@@ -32,7 +32,7 @@ module.exports = React.createClass({
 		);
 	},
 	_onChange: function(props) {
-		var update = assign(this.state, props);
+		var update = _.pick(assign(this.state, props), 'category', 'class', 'mana');
 		FilterActions.updateFilters(update, this);
 		this.setState(update);
 	} 
