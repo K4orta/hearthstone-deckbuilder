@@ -1,5 +1,6 @@
 var React = require('react'),
-	HeroStore = require('../../stores/hero-store');
+	HeroStore = require('../../stores/hero-store'),
+	cap = require('capitalize');
 
 
 var Heroes = React.createClass({
@@ -11,7 +12,7 @@ var Heroes = React.createClass({
 	render: function() {
 		var heroes = this.state.heroes.map(function(hero) {
 			return (
-				<option value={hero.hero} key={hero.id} className={'hero-selector__option '+hero.hero}>{hero.hero}</option>
+				<option value={hero.hero} key={hero.id} className={'hero-selector__option '+hero.hero}>{cap(hero.hero)}</option>
 			);
 		});
 
@@ -26,6 +27,7 @@ var Heroes = React.createClass({
 			this.props.onChange(e);	
 		}
 	}
+
 });
 
 module.exports = Heroes;
