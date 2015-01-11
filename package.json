@@ -12,7 +12,8 @@
     "object-assign": "^2.0.0",
     "react": "^0.12.1",
     "react-router": "^0.11.4",
-    "reactify": "^0.17.1"
+    "reactify": "^0.17.1",
+    "slug": "^0.8.0"
   },
   "devDependencies": {
     "browserify": "^7.0.0",

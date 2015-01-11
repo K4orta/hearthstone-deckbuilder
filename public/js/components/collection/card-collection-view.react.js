@@ -37,12 +37,12 @@ var Collection = React.createClass({
 
 		return (
 			<li className={cardClass} data-id={card.id} onClick={this.props.onClick}>
-				<div className='hs-card__mana'>{card.mana}</div>
+				<div className='hs-card__mana'>{card.cost}</div>
 				{usedTag}
 				{attackIcon}
 				{healthIcon}
 				<div className={'hs-card__portait ' + card.quality} >
-					<img className='hs-card__image' src={'/images/cards/' + card.image_url}/>
+					<img className='hs-card__image' src={'/images/cards/' + card.image}/>
 				</div>
 				<h4 className='hs-card__title'>{card.name}</h4>
 				<div className='hs-card__description'>

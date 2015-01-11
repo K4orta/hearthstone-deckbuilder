@@ -13,7 +13,7 @@ var Collection = React.createClass({
 	getInitialState: function() {
 		return {
 			menuOpen: false,
-			hero: _.first(HeroStore.getAll()).hero
+			hero: _.first(HeroStore.getAll()).playerClass
 		};
 	},
 	render: function() {
@@ -27,7 +27,7 @@ var Collection = React.createClass({
 						<label className='create-wrapper__label'>Class:</label>
 						<Heroes ref='heroSelect' onChange={this._heroSelectChange} />
 						<label className='create-wrapper__label'>Deck Name:</label>
-						<input type='text' ref='newDeck' placeholder={'New ' + cap(this.state.hero) + ' Deck'} onBlur={this._onBlur} onFocus={this._onFocus} onKeyPress={this._onKeyPress}> </input>
+						<input type='text' ref='newDeck' placeholder={'New ' + this.state.hero + ' Deck'} onBlur={this._onBlur} onFocus={this._onFocus} onKeyPress={this._onKeyPress}> </input>
 					</div>
 
 					<div className='create-wrapper__button-group'>

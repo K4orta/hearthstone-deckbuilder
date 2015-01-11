@@ -12,7 +12,7 @@ var Heroes = React.createClass({
 	render: function() {
 		var heroes = this.state.heroes.map(function(hero) {
 			return (
-				<option value={hero.hero} key={hero.id} className={'hero-selector__option '+hero.hero}>{cap(hero.hero)}</option>
+				<option value={hero.playerClass} key={hero.id} className={'hero-selector__option '+hero.playerClass}>{hero.playerClass}</option>
 			);
 		});
 

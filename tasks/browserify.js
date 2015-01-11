@@ -13,8 +13,8 @@ module.exports = function(gulp) {
       .transform(reactify)
       .bundle()
       .pipe(source('main.js'))
-      .pipe(buffer())
-      .pipe(uglify())
+      // .pipe(buffer())
+      // .pipe(uglify())
       .pipe(gulp.dest('./public/dist/'));
   });
 };

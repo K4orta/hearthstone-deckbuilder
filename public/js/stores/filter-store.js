@@ -14,9 +14,9 @@ var Store = assign({}, EventEmitter.prototype, {
 	},
 	getFilters: function(hero) {
 		var filters = [
-			Filters.removeUncommon(),
 			Filters.filterByHero(hero)
 		];
+		console.log(hero);
 
 		for (var a in _filters) {
 			filters.push(Filters[a](_filters[a]));

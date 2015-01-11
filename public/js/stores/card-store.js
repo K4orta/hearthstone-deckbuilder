@@ -1,6 +1,6 @@
  var AppDispatcher = require('../dispatcher/app-dispatcher'),
  	EventEmitter = require('events').EventEmitter,
- 	cards = require('../../assets/all-cards.json'),
+ 	cards = require('../../assets/collection.json'),
  	assign = require('object-assign'),
  	_ = require('lodash');
 
