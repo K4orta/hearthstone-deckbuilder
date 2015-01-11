@@ -1,4 +1,6 @@
-var express = require('express');
+var express = require('express'),
+	compression = require('compression');
+
 require("node-jsx").install(); 
 var React = require('react'),
 	Router = require('react-router'),
@@ -16,6 +18,7 @@ app.get('/', function(req, res) {
 	});
 });
 
+app.use(compression());
 app.use(express.static(__dirname + '/public'));
 
 var port = process.env.PORT || 3000;
