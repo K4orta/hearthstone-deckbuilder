@@ -8,6 +8,7 @@ var React = require('react'),
 	AppRouter = require('./public/js/components/router.react');
 
 var app = express();
+app.use(compression());
 app.set('views', './public/views');
 app.set('view engine', 'jade');
 
@@ -18,7 +19,6 @@ app.get('/', function(req, res) {
 	});
 });
 
-app.use(compression());
 app.use(express.static(__dirname + '/public'));
 
 var port = process.env.PORT || 3000;
