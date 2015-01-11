@@ -25,7 +25,7 @@ module.exports = React.createClass({
 	},
 	_calculateCurve: function() {
 		return _.countBy(DeckStore.getCurrentDeck().cards, function(card) {
-			return card.mana <= manaBars ? card.mana : manaBars; 
+			return card.cost <= manaBars ? card.cost : manaBars; 
 		});
 	},
 	_calculateRatio: function(curve) {

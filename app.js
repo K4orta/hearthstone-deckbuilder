@@ -1,12 +1,19 @@
 var express = require('express');
-var react = require('react');
+require("node-jsx").install(); 
+var React = require('react'),
+	Router = require('react-router'),
+	Routes = require('./public/js/components/routes.react'),
+	AppRouter = require('./public/js/components/router.react');
 
 var app = express();
 app.set('views', './public/views');
 app.set('view engine', 'jade');
 
 app.get('/', function(req, res) {
-	res.render('index', {});
+	Router.run(Routes, req.url, function(Handler) {
+		var reactHtml = React.renderToString(React.createElement(Handler, null));
+		res.render('index', {reactOutput: reactHtml});
+	});
 });
 
 app.use(express.static(__dirname + '/public'));

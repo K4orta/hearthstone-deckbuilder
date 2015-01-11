@@ -5,6 +5,6 @@ var FastClick = require('fastclick'),
 FastClick(document.body);
 
 React.initializeTouchEvents(true);
-AppRouter.run(function(Handler, state) {
+AppRouter.run(function(Handler) {
 	React.render(<Handler />, document.querySelector('.content'));
 });
