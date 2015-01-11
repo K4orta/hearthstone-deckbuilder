@@ -24,7 +24,7 @@ module.exports = React.createClass({
 		return (
 			<section className='filter-bar'>
 				<form data-group='group1'>
-					<OptGroup group='category' selected={this.state.category} items={['minion', 'spell']} callback={this._onChange}/>
+					<OptGroup group='category' selected={this.state.category} items={['Minion', 'Spell']} callback={this._onChange}/>
 					<OptGroup group='class' selected={this.state.class} items={['hero','neutral']} callback={this._onChange}/>
 					<OptGroup group='mana' selected={this.state.mana} items={['0','1','2','3','4','5','6','7']} callback={this._onChange}/>
 				</form>

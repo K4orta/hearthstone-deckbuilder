@@ -4,7 +4,7 @@ module.exports = React.createClass({
 	render: function() {
 		var card = this.props.data;
 		var icon = (
-			<i className={'card-list__item__quality-gem ' + card.quality}>{card.mana}</i>
+			<i className={'card-list__item__quality-gem ' + card.rarity.toLowerCase()}>{card.cost}</i>
 		); 
 		return (
 			<li className='deck__card-list__item'>

@@ -15,7 +15,7 @@ var createDeck = function(action) {
 		name: action.name,
 		id: _idIndex++,
 		cards: [],
-		deckType: action.hero || 'neutral'
+		deckType: action.hero || 'Neutral'
 	});
 	_currentDeck = _collection[0].id;
 };
@@ -23,7 +23,7 @@ var createDeck = function(action) {
 //TODO: REMOVE THIS
 createDeck({
 	name: 'New Mage Deck',
-	hero: 'mage'
+	hero: 'Mage'
 });
 
 var addCard = function(action) {

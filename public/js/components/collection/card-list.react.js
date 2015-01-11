@@ -31,7 +31,7 @@ var CardList = React.createClass({
 		});
 	},
 	_addCardToDeck: function(e) {
-		DeckActions.addCard(DeckStore.getCurrentDeckId(), Cards.getCard(parseInt(e.currentTarget.dataset.id)));
+		DeckActions.addCard(DeckStore.getCurrentDeckId(), Cards.getCard(e.currentTarget.dataset.id));
 	},
 	_getCurrentUsedCards: function() {
 		return DeckStore.getUsedCards(DeckStore.getCurrentDeck());

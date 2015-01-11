@@ -10,7 +10,7 @@ module.exports = {
 		}).length;
 
 		// Can only have one of a given legendary
-		if (card.quality === 'legendary' && count >= DeckConstants.DECK_LEGENDARY_LIMIT) {
+		if (card.rarity === 'Legendary' && count >= DeckConstants.DECK_LEGENDARY_LIMIT) {
 			return false;
 		}
 

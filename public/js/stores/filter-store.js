@@ -16,8 +16,6 @@ var Store = assign({}, EventEmitter.prototype, {
 		var filters = [
 			Filters.filterByHero(hero)
 		];
-		console.log(hero);
-
 		for (var a in _filters) {
 			filters.push(Filters[a](_filters[a]));
 		}

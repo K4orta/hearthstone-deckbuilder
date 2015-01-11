@@ -21,7 +21,7 @@ var Filters = {
 				return cards;
 			} 
 			return _.filter(cards, function(card) {
-				return card.hero === 'neutral' || card.hero === heroSlug;
+				return card.playerClass == null || card.playerClass === heroSlug;
 			});
 		};
 	},
@@ -29,16 +29,17 @@ var Filters = {
 		var lowerInput = input.toLowerCase()
 		return function(cards) {
 			return _.filter(cards, function(card) {
+
 				return _.contains(card.name.toLowerCase(), lowerInput) 
-				|| _.contains(card.race.toLowerCase(), lowerInput)
-				|| _.contains(card.description.toLowerCase(), lowerInput);
+				|| (card.race && _.contains(card.race.toLowerCase(), lowerInput))
+				|| (card.text && _.contains(card.text.toLowerCase(), lowerInput));
 			});
 		};
 	},
 	category: function(input) {
 		return function(cards) {
 			return _.filter(cards, function(card) {
-				return card.category === input;
+				return card.type === input;
 			});
 		};
 	},
@@ -46,11 +47,11 @@ var Filters = {
 		return function(cards) {
 			if (input === 'neutral') {
 				return _.filter(cards, function(card) {
-					return card.hero === 'neutral';
+					return card.playerClass == null;
 				});	
 			} else {
 				return _.reject(cards, function(card) {
-					return card.hero === 'neutral';
+					return card.playerClass == null;
 				});	
 			}
 		};
@@ -58,10 +59,10 @@ var Filters = {
 	mana: function(input) {
 		return function(cards) {
 			return _.filter(cards, function(card) {
-				if (input >= 7 && card.mana >=7){
+				if (input >= 7 && card.cost >=7){
 					return true;
 				}
-				return card.mana == input;
+				return card.cost == input;
 			});
 		};
 	},

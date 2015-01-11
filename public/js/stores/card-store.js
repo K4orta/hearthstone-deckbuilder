@@ -4,11 +4,12 @@
  	assign = require('object-assign'),
  	_ = require('lodash');
 
-var _collection = cards.cards,
+var _collection = cards,
 	CHANGE_EVENT = 'change';
 
 var Store = assign({}, EventEmitter.prototype, {
 	getAll: function() {
+		console.log(_collection);
 		return _collection;
 	},
 	get: function(options) {

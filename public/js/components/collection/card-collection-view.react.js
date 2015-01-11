@@ -22,7 +22,7 @@ var Collection = React.createClass({
 
 		if (this.props.used) {
 			var cardLimit = 2;
-			if (card.quality === 'legendary') {
+			if (card.rarity === 'Legendary') {
 				cardLimit = 1;
 			}
 
@@ -41,12 +41,12 @@ var Collection = React.createClass({
 				{usedTag}
 				{attackIcon}
 				{healthIcon}
-				<div className={'hs-card__portait ' + card.quality} >
+				<div className={'hs-card__portait ' + card.rarity.toLowerCase()} >
 					<img className='hs-card__image' src={'/images/cards/' + card.image}/>
 				</div>
 				<h4 className='hs-card__title'>{card.name}</h4>
 				<div className='hs-card__description'>
-					<p dangerouslySetInnerHTML={{__html: card.description}} />
+					<p dangerouslySetInnerHTML={{__html: card.text}} />
 				</div>
 			</li>
 		);
