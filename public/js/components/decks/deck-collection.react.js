@@ -13,7 +13,7 @@ var Collection = React.createClass({
 		DeckActions.destroyDeck(parseInt(e.target.dataset.id));
 	},
 	_removeCard: function(e) {
-		DeckActions.removeCard(parseInt(e.target.dataset.deck), parseInt(e.target.dataset.id));
+		DeckActions.removeCard(parseInt(e.target.dataset.deck), e.target.dataset.id);
 	},
 	componentDidMount: function() {
 		var params = this.getParams();
