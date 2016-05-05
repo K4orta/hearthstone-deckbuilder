@@ -42,7 +42,7 @@ var Collection = React.createClass({
 				{attackIcon}
 				{healthIcon}
 				<div className={'hs-card__portait ' + card.rarity.toLowerCase()} >
-					<img className='hs-card__image' src={'/images/cards/' + card.image}/>
+					<img className='hs-card__image' src={'images/cards/' + card.image}/>
 				</div>
 				<h4 className='hs-card__title'>{card.name}</h4>
 				<div className='hs-card__description'>

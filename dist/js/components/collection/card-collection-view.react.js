@@ -42,7 +42,7 @@ var Collection = React.createClass({displayName: "Collection",
 				attackIcon, 
 				healthIcon, 
 				React.createElement("div", {className: 'hs-card__portait ' + card.rarity.toLowerCase()}, 
-					React.createElement("img", {className: "hs-card__image", src: '/images/cards/' + card.image})
+					React.createElement("img", {className: "hs-card__image", src: 'images/cards/' + card.image})
 				), 
 				React.createElement("h4", {className: "hs-card__title"}, card.name), 
 				React.createElement("div", {className: "hs-card__description"}, 
