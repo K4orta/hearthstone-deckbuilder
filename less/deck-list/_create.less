@@ -1,0 +1,78 @@
+.deck-index__controls {
+	display: block;
+	padding: .5rem 1rem;
+	border-bottom: 1px solid @deck-border-color;
+}
+
+.deck-index__controls__new-deck {
+	width: 100%;
+	color: @button-text-color;
+}
+
+.deck-index__controls__new-deck i {
+	color: green;
+}
+
+.deck-index__create-wrapper {
+	position: relative;
+	overflow: hidden;
+	max-height: 0;
+	transition: max-height .2s ease-out;
+	.clearfix;
+}
+
+.create-wrapper__form-group {
+	padding-top: 1rem;
+}
+
+.create-wrapper__label {
+	color: white;
+}
+
+.deck-index__create-wrapper.is-open {
+	display: block;
+	max-height: 12rem;
+}
+
+.deck-index__controls input {
+	border-radius: 5px;
+	padding: .55rem;
+	margin-bottom: 1rem;
+}
+
+.deck-index__create-btn i {
+	color: green;
+}
+
+.create-wrapper__button-group button:last-child i {
+	color: brown;
+}
+
+.hero-selector {
+	width: 100%;
+	height: 2.25rem;
+	font-size: 1rem;
+	line-height: 1rem;
+	margin-bottom: .5rem;
+	border: none;
+	border-radius: 5px;
+	color: #333;
+}
+
+.hero-selector__option {
+	line-height: 2rem;
+	padding: .5rem;
+}
+
+.create-wrapper__button-group {
+	clear: both;
+	float: right;
+}
+
+.create-wrapper__button-group button {
+	color: @button-text-color;
+}
+
+.create-wrapper__button-group button:last-child {
+	margin-right: 0; 
+}

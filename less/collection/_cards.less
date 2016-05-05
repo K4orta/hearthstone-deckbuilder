@@ -1,0 +1,182 @@
+.collection-view {
+	background-color: @collection-background;
+	padding-bottom: @mana-curve-height + 3rem;
+
+	.min-mq(@sm, {
+		margin-left: @sidebar-width;
+		padding-bottom: 0;
+	});
+
+	.input-focused & {
+		padding-bottom: 0;
+	}  
+}
+
+.card-list {
+	text-align: center;
+	margin-top: 3rem;
+}
+
+.hs-card {
+	display: block;
+	padding: .5rem 1rem;
+	border-bottom: 1px solid @ui-border-color;
+	min-height: 6rem;
+	position: relative;
+	background-color: transparent;
+	transition: background-color .5s ease-out, transform .25s ease-out;
+	user-select: none;
+	&:hover {
+		.min-mq(@md, {
+			transform: scale(1.1);
+		});
+	}
+	
+	&:active {
+		background-color: darken(@collection-background, 10%);
+		transition: background-color .05s ease-out;
+		.min-mq(@md, {
+			transition: transform .01s ease-out;
+			background-color: transparent;
+			transform: scale(1);
+		});
+	}
+
+	.min-mq(@md, {
+		display: inline-block;
+		max-width: 15rem;
+		vertical-align: top;
+		border-bottom: none;
+		padding: 0;
+
+		// Put a fixed width/height here so these don't shift
+		// around a bunch while loading in. 
+		width: 12.5rem;
+		height: 18.9375rem;
+	});
+}
+
+.card-stat-bubble(@color) {
+	background-color: @color;
+	color: white;
+	display: inline-block;
+	padding: .2rem .57rem;
+	border-radius: 3rem;
+	position: absolute;
+	z-index: 2;
+
+	.min-mq(@md, {
+		display: none;
+	});
+}
+
+.hs-card__mana {
+	.card-stat-bubble(@mana-color);
+	top: 0.5rem;
+	left: 0.5rem;
+	font-size: 1.2rem;
+	padding: .25rem .675rem;
+	text-shadow: 2px 2px 0 darken(@mana-color, 30%);
+}
+
+.hs-card__used-tag {
+	position: absolute;
+	color: @card-use-tag-text-color;
+	top: .5rem;
+	left: 4.6rem;
+	padding: .15rem .25rem;
+	border-radius: .25rem;
+	background-color: @card-use-tag;
+	z-index: 2;
+	box-shadow: 1px 1px 0px fade(@card-use-tag-text-color, 60%);
+	.min-mq(@md, {
+		top: 2.3rem;
+		left: auto;
+		right: 1rem;
+		box-shadow: 2px 2px 0px fade(@card-use-tag-text-color, 60%);
+		padding: .15rem .5rem;
+	});
+}
+
+.hs-card__attack {
+	.card-stat-bubble(@attack-color);
+	top: 4rem;
+	left: 0.5rem;
+}
+
+.hs-card__health {
+	.card-stat-bubble(@health-color);
+	top: 4rem;
+	left: 4.6rem;
+}
+
+.hs-card__portait {
+	overflow: hidden;
+	width: 5rem;
+	border-radius: 5rem;
+	height: 5rem;
+	position: absolute;
+	box-shadow: 2px 2px 1px @ui-border-color;
+	border: 3px solid transparent;
+	transition: opacity .3s;
+	.card-limit & {
+		opacity: .6;
+	}
+
+	.min-mq(@md, {
+		height: auto;
+		position: static;
+		width: auto;
+		border-radius: initial;
+		overflow: visible;
+		box-shadow: none;
+		border: none;
+	});
+}
+
+.hs-card__portait.common {
+	border-color: @common-color;
+}
+
+.hs-card__portait.rare {
+	border-color: @rare-color;
+}
+
+.hs-card__portait.epic {
+	border-color: @epic-color;
+}
+
+.hs-card__portait.legendary {
+	border-color: @legendary-color;
+}
+
+.hs-card__image {
+	display: block;
+	max-height: initial;
+	max-width: initial;
+	height: 277px;
+	position: absolute;
+	top: -70%;
+	left: -74%;
+	.min-mq(@md, {
+		cursor: pointer;
+		position: static;
+		max-width: 100%;
+	});
+}
+
+.hs-card__title {
+	margin-bottom: .5rem;
+	font-size: 1.25rem;
+
+}
+
+.hs-card__description, .hs-card__title {
+	padding-left: 6rem;
+	text-align: left;
+	user-select: initial;
+	color: @body-text-color;
+	.min-mq(@md, {
+		display: none;
+	});
+}

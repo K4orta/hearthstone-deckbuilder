@@ -1,0 +1,127 @@
+.deck-panel {
+	width: 100%;
+	position: fixed;
+	backface-visibility: hidden;
+	background-color: @deck-panel-background;
+	height: 100%;
+	padding: 0;
+	top: 0;
+	z-index: 4;
+	overflow: auto;
+	transition: transform .33s ease-out;
+	transform: translateX(-100%);
+
+	.deck-menu-open & {
+		transform: translateX(0);
+	}
+
+	.min-mq(@sm, {
+		left: 0;
+		bottom: @mana-curve-height;
+		height: auto;
+		width: @sidebar-width;
+		transform: translateX(0);
+	});
+}
+
+.deck-list {
+	color: white;
+	list-style: none;
+	padding-bottom: @mana-curve-height + 6rem;
+	.min-mq(@sm, {
+		padding: 0;
+	});
+}
+
+.deck {
+	max-height: 3rem;
+	transition: max-height .4s ease-out;
+	overflow: hidden;
+	border-bottom: 1px solid @deck-border-color;
+	padding: 0;
+	padding-left: 1rem;
+	padding-right: .5rem;
+}
+
+.deck.active {
+	transition: max-height .9s;
+	max-height: 64rem;
+	background-color: darken(@deck-panel-background, 10%);
+}
+
+.deck__title {
+	font-size: 1.128rem;
+	line-height: 3rem;
+	float: left;
+}
+
+.deck__title a {
+	margin-right: .5rem;
+	color: @collection-background;
+	text-shadow: 2px 2px 0 fade(black, 30%);
+	transition: color .25s;
+
+	&:hover {
+		color: white;
+	}
+}
+
+.deck__destroy-icon {
+	float: right;
+	cursor: pointer;
+	line-height: 3rem;
+	padding: 0 .5rem;
+	text-shadow: 2px 2px fade(black, 20%);
+}
+
+.deck__card-list {
+	clear: both;
+}
+
+.deck__card-list__item {
+	padding: .75rem 0;
+	border-bottom: 1px dotted @deck-border-color;
+}
+
+.deck__card-list__item:last-child {
+	border-bottom: none;
+}
+
+.card-list__item__quality-gem {
+	float: left;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-top: -.1rem;
+	margin-right: .3rem;
+	position: relative;
+	display: inline-block;
+	border: 2px solid @mana-color;
+	border-radius: 2rem;
+	padding: .1rem .45rem;
+	font-size: .8rem
+
+}
+
+.card-list__item__quality-gem.common {
+	border-color: @mana-color;
+}
+
+.card-list__item__quality-gem.rare {
+	border-color: @mana-color;
+}
+
+.card-list__item__quality-gem.epic {
+	border-color: @epic-color;
+}
+
+.card-list__item__quality-gem.legendary {
+	border-color: @legendary-color;
+}
+
+.card-list__item__remove-button {
+	float: right;
+	padding: 0 .5rem;
+	user-select: none;
+	cursor: pointer;
+	text-shadow: 2px 2px 0 fade(black, 20%);
+}

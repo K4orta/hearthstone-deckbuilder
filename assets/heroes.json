@@ -1,0 +1,92 @@
+[
+  {
+    "id": "HERO_09",
+    "name": "Anduin Wrynn",
+    "type": "Hero",
+    "faction": "Neutral",
+    "rarity": "Free",
+    "health": 30,
+    "collectible": true,
+    "playerClass": "Priest"
+  },
+  {
+    "id": "HERO_01",
+    "name": "Garrosh Hellscream",
+    "type": "Hero",
+    "faction": "Neutral",
+    "rarity": "Free",
+    "health": 30,
+    "collectible": true,
+    "playerClass": "Warrior"
+  },
+  {
+    "id": "HERO_07",
+    "name": "Gul'dan",
+    "type": "Hero",
+    "faction": "Neutral",
+    "rarity": "Free",
+    "health": 30,
+    "collectible": true,
+    "playerClass": "Warlock"
+  },
+  {
+    "id": "HERO_08",
+    "name": "Jaina Proudmoore",
+    "type": "Hero",
+    "faction": "Neutral",
+    "rarity": "Free",
+    "health": 30,
+    "collectible": true,
+    "playerClass": "Mage"
+  },
+  {
+    "id": "HERO_06",
+    "name": "Malfurion Stormrage",
+    "type": "Hero",
+    "faction": "Neutral",
+    "rarity": "Free",
+    "health": 30,
+    "collectible": true,
+    "playerClass": "Druid"
+  },
+  {
+    "id": "HERO_05",
+    "name": "Rexxar",
+    "type": "Hero",
+    "faction": "Neutral",
+    "rarity": "Free",
+    "health": 30,
+    "collectible": true,
+    "playerClass": "Hunter"
+  },
+  {
+    "id": "HERO_02",
+    "name": "Thrall",
+    "type": "Hero",
+    "faction": "Neutral",
+    "rarity": "Free",
+    "health": 30,
+    "collectible": true,
+    "playerClass": "Shaman"
+  },
+  {
+    "id": "HERO_04",
+    "name": "Uther Lightbringer",
+    "type": "Hero",
+    "faction": "Neutral",
+    "rarity": "Free",
+    "health": 30,
+    "collectible": true,
+    "playerClass": "Paladin"
+  },
+  {
+    "id": "HERO_03",
+    "name": "Valeera Sanguinar",
+    "type": "Hero",
+    "faction": "Neutral",
+    "rarity": "Free",
+    "health": 30,
+    "collectible": true,
+    "playerClass": "Rogue"
+  }
+]

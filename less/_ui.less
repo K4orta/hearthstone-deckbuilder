@@ -1,0 +1,50 @@
+[type=text] {
+	padding: .25rem;
+	border-radius: .25rem;
+	border: none;
+	width: 100%;
+	font-size: 1rem;
+}
+
+button {
+	padding: 0;
+	font-size: 1rem;
+	border: none;
+	background: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.fa {
+	font-size: 1rem;
+	line-height: 1.35;
+	user-select: none;
+}
+
+.btn {
+	border-radius: 5px;
+	border: 1px solid darken(@button-background-color, 10%);
+	padding: .35rem .5rem;
+	margin-right: .5rem;
+	box-shadow: 2px 2px 5px fade(black, 10%);
+	text-shadow: 2px 2px 0 fade(black, 30%);
+	cursor: pointer;
+	background: @button-background-color;
+	// color: #ddd;
+	transition: box-shadow .25s; 
+
+	&:hover {
+		box-shadow: 2px 2px 6px fade(black, 30%);
+	}
+}
+
+.loading-screen {
+	margin-top: 5rem;
+	text-align: center;
+}
+
+.loading-screen__icon {
+	font-size: 3rem;
+}
